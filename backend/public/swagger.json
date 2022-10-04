@@ -1,0 +1,20 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "",
+        "version": "1.0.0",
+        "title": "M1 API",
+        "termsOfService": "",
+        "contact": {
+            "email": "hugo.bertoux@icloud.com"
+        },
+        "license": {
+            "name": "Hugo",
+            "url": ""
+        }
+    },
+    "host": "localhost:51001",
+    "basePath": "/api",
+    "tags": [],
+    "schemes": ["http"]
+}

@@ -1,0 +1,11 @@
+--- /dev/null
++++ ../src/Illuminate/Database/Migrations/Migrator.php
+@@ -532,7 +532,7 @@
+             return $this->getMigrationName($file);
+         })->sortBy(function ($file, $key) {
+             return $key;
+-        })->all();
++        }, SORT_NATURAL)->all();
+     }
+ 
+     /**
