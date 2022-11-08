@@ -20,7 +20,13 @@ function Register()
         })
 
         result = await result.json();
-        localStorage.setItem("user-info",JSON.stringify(result));
+        if(!result.error) 
+        {
+            localStorage.setItem("user-info",JSON.stringify(result));
+        }
+        else{
+            console.log(result.error);
+        }
     }
     return (    
         <div>
