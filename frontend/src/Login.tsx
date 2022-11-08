@@ -38,9 +38,9 @@ function Login(){
     return(
         <div>
             <h1>Connexion</h1>
-            <input type="text" onChange={(e)=>setEmail(e.target.value)}className="form-control" placeholder="Email"></input>
-            <input type="text" onChange={(e)=>setPassword(e.target.value)}className="form-control" placeholder="Mot de passe"></input>
-            <button onClick={connexion} className="btn btn-primary">S'inscrire</button>
+            <input type="text" onChange={(e)=>setEmail(e.target.value)} className="form-control" placeholder="Email"></input>
+            <input type="text" onChange={(e)=>setPassword(e.target.value)} className="form-control" placeholder="Mot de passe"></input>
+            <button onClick={connexion} className="btn btn-primary">Se connecter</button>
         </div>
     )
 }
