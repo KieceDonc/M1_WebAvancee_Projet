@@ -9,8 +9,7 @@ function HomePage(){
         <div>
             <h1>Home Page TODO</h1>
             <Button component={Link} to="/login" variant="contained">Login</Button>
-        <Button component={Link} to="/register" variant="contained">Register</Button>
-            
+            <Button component={Link} to="/register" variant="contained">Register</Button>
         </div>
     )
 }
