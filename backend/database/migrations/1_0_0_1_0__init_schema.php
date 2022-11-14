@@ -16,6 +16,7 @@ return new class extends Migration {
       $table->string('last_name');
       $table->string('email');
       $table->string("password");
+      $table->boolean("isAdmin");
       $table->date('account_creation')->nullable();
       $table->date("account_modified")->nullable();
   });
@@ -30,9 +31,10 @@ return new class extends Migration {
       $table->string('description');
     }); 
 
-    Schema::create('Panier',function(Blueprint $table){
+    Schema::create('Devis',function(Blueprint $table){
       $table->increments('id');
-      $table->integer('idUtilisateur')->references("id")->on("Users");
+      $table->integer("idUtilisateur");
+      $table->foreign('idUtilisateur')->references("id")->on("Users");
       $table->json("data");
     });
   }
@@ -46,6 +48,6 @@ return new class extends Migration {
   public function down() {
     Schema::drop("Users");
     Schema::drop('Car');
-    Schema::drop("Panier");
+    Schema::drop("Devis");
   }
 };
