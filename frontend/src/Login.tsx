@@ -13,6 +13,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import './Login.css';
 
 function Copyright(props: any) {
     return (
@@ -70,7 +71,7 @@ function Login(){
             <input type="text" onChange={(e)=>setPassword(e.target.value)} className="form-control" placeholder="Mot de passe"></input>
             <button onClick={connexion} className="btn btn-primary">Se connecter</button>
         </div>*/
-
+        <div>
         <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
@@ -80,7 +81,7 @@ function Login(){
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundImage: 'url(https://www.bugatti.com/fileadmin/_processed_/f/c/csm_Stage-1920x1280_14e01f234d.png)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -155,6 +156,7 @@ function Login(){
         </Grid>
       </Grid>
     </ThemeProvider>
+    </div>
     )
 }
 
