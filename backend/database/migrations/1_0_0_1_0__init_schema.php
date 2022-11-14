@@ -28,7 +28,7 @@ return new class extends Migration {
       $table->string("type");
       $table->integer('nb_doors');
       $table->integer('year');
-      $table->string('description');
+      $table->string('description',35000);
     }); 
 
     Schema::create('Devis',function(Blueprint $table){

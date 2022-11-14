@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use App\Models\data;
+use App\Models\Car;
 
 class ControllerData extends Controller 
 {
     public function data()
     {
-        return response()->json(['data'=> getdata()]);
+        return response()->json(['dataCar'=> getdata()]);
     }
 }
 
 function getdata(){
-    return data::all()->keyBy('code');
+    return Car::all()->keyBy('id');
 }
 ?>
