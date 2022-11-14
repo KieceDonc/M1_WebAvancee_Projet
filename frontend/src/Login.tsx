@@ -103,7 +103,7 @@ function Login(){
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Se connecter
             </Typography>
             <Box component="form" sx={{ mt: 1 }}>
               <TextField
@@ -111,7 +111,7 @@ function Login(){
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Adresse Email"
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -121,14 +121,14 @@ function Login(){
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="Mot de Passe"
                 type="password"
                 id="password"
                 autoComplete="current-password"
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
+                label="Se rappeler de moi"
               />
               <Button
                 type="submit"
@@ -136,17 +136,17 @@ function Login(){
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Connexion
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
-                    Forgot password?
+                    Mot de passe oublié ?
                   </Link>
                 </Grid>
                 <Grid item>
                   <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                    {"Vous n'avez pas de compte ? Inscrivez-vous"}
                   </Link>
                 </Grid>
               </Grid>
