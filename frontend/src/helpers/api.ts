@@ -1,6 +1,6 @@
 
 /*
-    Function to fetch data why api url
+    Function to fetch data w/ api url
 */
 function api<T>(url:string):Promise<T>{
     return fetch(url).then(response => {
