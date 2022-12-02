@@ -12,6 +12,7 @@ function HomePage(){
             <Button component={Link} to="/login" variant="contained">Login</Button>
             <Button component={Link} to="/register" variant="contained">Register</Button>
             <Button component={Link} to="/profile" variant="contained">Profile</Button>
+            <Button component={Link} to="/DataTmp" variant="contained">DataTempory</Button>
         </div>
     )
 }

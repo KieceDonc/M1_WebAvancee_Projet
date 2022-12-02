@@ -19,12 +19,12 @@ return new class extends Migration {
       $table->boolean("isAdmin");
       $table->date('account_creation')->nullable();
       $table->date("account_modified")->nullable();
-  });
+    });
 
     Schema::create('Car',function(Blueprint $table) {
       $table->increments('id');
       $table->string('name');
-      $table->float("price");
+      $table->float("price"); 
       $table->string("type");
       $table->integer('nb_doors');
       $table->integer('year');
@@ -37,11 +37,16 @@ return new class extends Migration {
       $table->foreign('idUtilisateur')->references("id")->on("Users");
       $table->json("data");
     });
+
+    Schema::create("Car_Photos", function(Blueprint $table){
+      $table->foreign('idCar')->references("id")->on('Car');
+      $table->string("srcPicturesCar",10000);
+    });
   }
 
   /**
    * Reverse the migrations.
-   *
+  *
    * @return void
    */
   
@@ -49,5 +54,6 @@ return new class extends Migration {
     Schema::drop("Users");
     Schema::drop('Car');
     Schema::drop("Devis");
+    Schema::drop("Car_Photos");
   }
 };
