@@ -25,7 +25,7 @@ return new class extends Migration {
       $table->increments('id');
       $table->string('name');
       $table->float("price"); 
-      $table->string("type");
+      $table->string("type")->nullable();
       $table->integer('nb_doors');
       $table->integer('year');
       $table->string('description',35000);
@@ -39,6 +39,7 @@ return new class extends Migration {
     });
 
     Schema::create("Car_Photos", function(Blueprint $table){
+      $table->integer("idCar");
       $table->foreign('idCar')->references("id")->on('Car');
       $table->string("srcPicturesCar",10000);
     });
