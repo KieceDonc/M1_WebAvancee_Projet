@@ -5,17 +5,9 @@ import { Button, createTheme } from "@mui/material";
 import "./Header.css";
 
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -30,7 +22,7 @@ const Header = () => {
     <AppBar position="static" style={{ background: '#42a5f5' }}>
         <Container maxWidth="xl">
         <Toolbar disableGutters>
-            <img src="./Otto_moto.png" className="ching-chong"/>
+            <img src="./Otto_moto.png" className="max-screen"/>
             <Typography
             variant="h6"
             noWrap
@@ -49,7 +41,7 @@ const Header = () => {
             Otto Moto
             </Typography>
 
-            <img src="./Otto_moto.png" className="chong-ching"/>
+            <img src="./Otto_moto.png" className="min-screen"/>
             <Typography
             variant="h5"
             noWrap
