@@ -19,7 +19,7 @@ const Header = () => {
   };
 
     return (
-    <AppBar position="static" style={{ background: '#42a5f5' }}>
+    <AppBar position="fixed" style={{ background: '#42a5f5' }} sx={{ width: "100%" }}>
         <Container maxWidth="xl">
         <Toolbar disableGutters>
             <img src="./Otto_moto.png" className="max-screen"/>
