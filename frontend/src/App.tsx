@@ -5,6 +5,7 @@ import Profile from './Profile'
 import HomePage from './HomePage'
 import Data from './Data'
 import CharteUtilisation from './CharteUtilisation'
+import Contact from './Contact'
 import Button from "@mui/material/Button";
 import { Link,BrowserRouter as Router,Route,Routes } from 'react-router-dom'
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/DataTmp" element={<Data />} />
             <Route path="/CharteUtilisation" element={<CharteUtilisation />} />
+            <Route path="/Contact" element={<Contact />} />
           </Routes>
         </div>
         <Footer/>
