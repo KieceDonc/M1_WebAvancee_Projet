@@ -1,0 +1,16 @@
+.max-screen{
+    max-width: 60px;
+}
+
+.min-screen{
+    max-width: 60px;
+}
+
+.header-button{
+    justify-content: space-around;
+}
+
+.header-button a{
+    margin: 15px;
+    background-color: #1976d2;
+}
