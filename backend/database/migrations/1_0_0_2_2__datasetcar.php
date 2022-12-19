@@ -124,6 +124,80 @@ return new class extends Migration {
               Ce modèle n'est plus produit à partir de décembre 20212.",
              
             ],
+            [
+              "year"=> 2017,
+              "price"=> 19150,
+              "nb_doors"=> 5,
+              "name"=> "Citroen C4 Cactus",
+              "description"=> "La C4 Cactus est une berline compacte, initialement typée crossover, du constructeur automobile français Citroën, présentée le 5 février 20141, date anniversaire d'André Citroën, avant une commercialisation en juin 2014.
+
+              Le 26 octobre 2017, Citroën présente le restylage de la C4 Cactus qui perd son look de crossover pour devenir une berline légèrement typée offroad.
+              
+              Par la même occasion et à partir du début 2018, elle remplace la C4 II2,3 (dont la production a cessé en 2018 sans remplaçante directe), malgré ses dimensions inférieures (4,17 mètres X 1,73 mètre au lieu de 4,33 mètres X 1,78 mètre) et sa plateforme PF1 destinée aux segment B du groupe PSA.",
+              "type"=> "Familiale"
+            ],
+            [
+              "year"=> 2018,
+              "price"=> 875,
+              "nb_doors"=> 6,
+              "name"=> "Fiat Ulysse",
+              "description"=> "Les prédécesseurs sortis en 1994 étaient perçus comme manquant de personnalité et ressemblant à des utilitaires. Les deux groupes ont décidé d'y remédier. La ligne des quatre monospaces présentés au Salon de l'automobile de Genève 2002 est désormais moins cubique. En outre, chacun affirme une identité différente2, chaque marque ayant pu dessiner les faces avant et arrière de son modèle2.
+
+              Les quatre intérieurs sont identiques et la qualité est en nette hausse. Seules les selleries et équipements diffèrent. Les quatre monospaces sont vastes et modulables, comme le prouvent les sièges qui peuvent se démonter et se mettre en plusieurs positions. La planche de bord est quasiment identique sur les quatre versions. Celles des Fiat Ulysse et Lancia Phedra sont respectivement recouvertes, sur certaines parties, de tissu et d'alcantara. Les selleries sont différentes. L'instrumentation est centrale. Les trois cadrans circulaires de couleur vert jade sont remplacés par un bloc compteur en cochant l'option GPS. La qualité des matériaux est en progression. La console centrale en surplomb du plancher accueille toujours le levier de vitesses et les commandes de climatisation. Le volume du coffre est de 324 litres en configuration 7 ou 8 places.",
+              "type"=> "Familiale"
+            ],
+            [
+              "year"=> 2017,
+              "price"=> 19990,
+              "nb_doors"=> 5,
+              "name"=> "Nissan President",
+              "description"=> "La Nissan President ( japonais :日 産 ・ プ レ ジ デ ン ト, Nissan Purejidento ) est une berline de luxe japonaise fabriquée et commercialisée par Nissan de 1965 à 2010 en tant que berline de luxe JDM , le fleuron de la gamme Nissan, commercialisée dans ses concessionnaires Nissan Motor Store .
+
+              Initialement commercialisé dans le JDM, à la fin des années 1980, les exportations ont commencé vers quelques pays, dont Singapour et Hong Kong, bien que les ventes aient été limitées. Lorsque le président a été introduit en 1965, il était commercialisé sous le badge 'Nissan', contrairement aux autres produits Nissan de l'époque, qui étaient commercialisés sous la marque Datsun.",
+              "type"=> "Berline"
+            ],
+            [
+              "year"=> 2018,
+              "price"=> 5998,
+              "nb_doors"=> 5,
+              "name"=> "Peugeot 3008",
+              "description"=> "La 3008 II est un SUV compact du constructeur automobile français Peugeot produit depuis 2016. La 3008 II est assemblée en France dans l'usine PSA de Sochaux.
+
+              Pour le marché chinois, elle apparaît dans une version agrandie dénommée Peugeot 4008 II, laissant la génération précédente de la 3008 y continuer sa carrière. La version sept places prend le nom de Peugeot 5008 II.
+              
+              Elle est élue voiture européenne de l'année 2017, trois ans après la Peugeot 308 IINote 1.",
+              "type"=> "SUV"
+            ],
+            [
+              "year"=> 2018,
+              "price"=> 7000,
+              "nb_doors"=> 5,
+              "name"=> "Renault Zoe",
+              "description"=> "La Renault Zoe est préfigurée par les concept cars Renault Zoé Concept présentés en 2009 au salon de Francfort4 puis au Mondial de l'automobile de Paris 2010 dans une version proche à 95 % du modèle final, et dans sa version définitive au salon international de l'automobile de Genève 2012. Sa commercialisation débute en France en mars 2013. Elle reprend le nom d'un concept-car Renault présenté en 2005.
+
+              Elle utilise uniquement l’énergie électrique stockée dans ses batteries, sans l'aide d'un moteur thermique, contrairement aux voitures hybrides.
+              
+              Le nom commercial de la Zoe est officiellement ZOE, en lettres capitales, puisqu'il s'agit de l'appellation officiellement déposée par la marque en 19915. Dans les faits, Renault n'écrit pas systématiquement Zoe en lettres capitales dans ses différents supports de communication.",
+              "type"=> "Electrique"
+            ],
+            [
+              "year"=> 2018,
+              "price"=> 4795,
+              "nb_doors"=> 5,
+              "name"=> "SEAT Leon",
+              "description"=> "La León est une berline compacte produite par le constructeur automobile espagnol Seat à plus de 2,2 millions d'exemplaires depuis 1999 pour les trois premières générations, la quatrième étant lancée en 2020. La seconde génération a été commercialisée en 2005, et la troisième en 2012.",
+              "type"=> "Berline"
+            ],
+            [
+              "year"=> 2018,
+              "price"=> 12295,
+              "nb_doors"=> 5,
+              "name"=> "SKODA Octavia",
+              "description"=> "La Škoda Octavia est une gamme d'automobile familiale du constructeur tchèque Škoda existant en berline et break et produite à 6,5 millions d'exemplaires avant l'arrivée de la quatrième génération.
+
+              La première Octavia a été fabriquée de 1959 à 1971. La marque a repris le nom en 1996 et créé une familiale sur la base de la plate-forme de la Volkswagen Golf. Depuis, quatre générations se succèdent : lancées en 1996 (Octavia I) puis en 2004 (Octavia II), en 2014 (Octavia III) puis en 2020 pour l'Octavia IV.",
+              "type"=> "Familiale"
+            ],
         ]);
         DB::table("Car")->insert($dataCar);
     }
