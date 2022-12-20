@@ -11,21 +11,20 @@ import Header from './Header'
 import './HomePage.css'
 
 function HomePage() {
-
   const data = useAppSelector((state) => state.cardata.cardata)
   let dataTab: any[] = Object.values(data.dataCar)
-  const shuffled = dataTab.sort(() => 0.5 - Math.random());
-  let selected = shuffled.slice(0, 3);
+  const shuffled = dataTab.sort(() => 0.5 - Math.random())
+  let selected = shuffled.slice(0, 3)
   const [Search, setSearch] = React.useState('' as string)
 
-  const getFilteredItems = (query:string, items:any) => {
+  const getFilteredItems = (query: string, items: any) => {
     if (!query) {
-      return selected;
+      return selected
     }
-    return dataTab.filter((item => item.name.toLowerCase().includes(query.toLowerCase())));
-  };
-  
-  const filteredItems = getFilteredItems(Search, selected);
+    return dataTab.filter((item) => item.name.toLowerCase().includes(query.toLowerCase()))
+  }
+
+  const filteredItems = getFilteredItems(Search, selected)
 
   return (
     <div className="homepage">
@@ -34,30 +33,31 @@ function HomePage() {
       <label>Search</label>
       <input type="text" onChange={(e) => setSearch(e.target.value)} />
       {filteredItems.map((item: any) => (
-      <Card className='Card-HP' variant="outlined" sx={{ m:'20px',width: '100%' }}>
-        <Typography variant='h6' sx={{ textAlign:'center',mb: 2 }}>
-          {item.name}
-        </Typography>
-        <div className='div-cara'>
-          <img
-            className="img-center"
-            src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-            srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2"
-            alt="image"
-          />
-          <Typography className="typoright">
-            {item.description}
+        <Card className="Card-HP" variant="outlined" sx={{ m: '20px', width: '100%' }}>
+          <Typography variant="h6" sx={{ textAlign: 'center', mb: 2 }}>
+            {item.name}
           </Typography>
-        </div>
-          
-        <Box sx={{ display: 'flex' }}>
-          <Button
-            sx={{ ml: 'auto', fontWeight: 600 }}>
-            Voir la page
-          </Button>
-        </Box>
-      </Card>
-      ))}  
+          <div className="div-cara">
+            <img
+              className="img-center"
+              src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
+              srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2"
+              alt="image"
+            />
+            <Typography className="typoright">{item.description}</Typography>
+          </div>
+
+          <Box sx={{ display: 'flex' }}>
+            <Button
+              sx={{ ml: 'auto', fontWeight: 600 }}
+              component={Link}
+              to="/car/1"
+              variant="contained">
+              Voir la page
+            </Button>
+          </Box>
+        </Card>
+      ))}
     </div>
   )
 }
