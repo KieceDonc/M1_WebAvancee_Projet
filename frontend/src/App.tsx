@@ -4,23 +4,32 @@ import Login from './Login'
 import Profile from './Profile'
 import HomePage from './HomePage'
 import Data from './Data'
+import CharteUtilisation from './CharteUtilisation'
+import Contact from './Contact'
 import Button from "@mui/material/Button";
 import { Link,BrowserRouter as Router,Route,Routes } from 'react-router-dom'
-import Catalogue from './Catalogue.js'
 
+/* Importation des composants */
+import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
   
   return (
     <Router>
-        <Routes>
-          <Route path="/" element={<HomePage/>}/>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/DataTmp" element={<Data />} />
-          <Route path="/Catalogue" element={<Catalogue />} />
-        </Routes>
+        <Header/>
+        <div className="Routes">
+          <Routes>
+            <Route path="/" element={<HomePage/>}/>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/DataTmp" element={<Data />} />
+            <Route path="/CharteUtilisation" element={<CharteUtilisation />} />
+            <Route path="/Contact" element={<Contact />} />
+          </Routes>
+        </div>
+        <Footer/>
     </Router>
   )
 }
