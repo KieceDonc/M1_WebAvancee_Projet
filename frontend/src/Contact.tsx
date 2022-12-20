@@ -11,17 +11,21 @@ const Contact = () => {
         <Box 
             component="form"
             sx={{
-            '& > :not(style)': { width: '25ch' }
+            '& > :not(style)': { 
+                width: '60ch', 
+                border: 1,
+                borderRadius: 1,
+                borderColor: '#0d47a1'
+            }
             }}
             noValidate
             autoComplete="off"
         >
             <div className="user-info">
-                <FormControl>
-                    <InputLabel className="element" htmlFor="my-address">Adresse email</InputLabel>
-                    <Input className="element" id="my-address" aria-describedby="my-text" />
-                    <TextField className="element" label="Voiture concerné"/>
-                    <TextareaAutosize className="text-area" placeholder="Votre question" style={{ width: 200 }} />
+                <FormControl className="formControl">
+                    <TextField className="textField" label="Adresse email" variant="outlined" fullWidth margin="dense" />
+                    <TextField className="textField" label="Voiture concerner" variant="outlined" fullWidth margin="dense" />
+                    <TextField className="textField" label="Votre question" multiline variant="standard" fullWidth margin="dense" />
                 </FormControl>
             </div>
         </Box>

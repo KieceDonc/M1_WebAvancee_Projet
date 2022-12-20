@@ -1,13 +1,13 @@
-.max-screen{
-    max-width: 60px;
-}
-
-.min-screen{
-    max-width: 60px;
+.header-photo{
+    max-width: 66px;
+    padding: 0 40px;
 }
 
 .header-button{
-    justify-content: space-around;
+    display: inline-flex;
+    justify-content: space-between;
+    width: 700px;
+    padding-left: 10%;
 }
 
 .header-button a{
