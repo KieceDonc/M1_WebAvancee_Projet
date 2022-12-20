@@ -10,13 +10,6 @@ import Header from './Header'
 /* Importation css */
 import './HomePage.css'
 
-const getFilteredItems = (query, items) => {
-  if (!query) {
-    return select;
-  }
-  return items.filter((song) => song.name.includes(query));
-};
-
 function HomePage() {
 
   const data = useAppSelector((state) => state.cardata.cardata)
@@ -29,7 +22,7 @@ function HomePage() {
     if (!query) {
       return selected;
     }
-    return dataTab.filter((item => item.name.includes(query)));
+    return dataTab.filter((item => item.name.toLowerCase().includes(query.toLowerCase())));
   };
   
   const filteredItems = getFilteredItems(Search, selected);
