@@ -19,9 +19,8 @@ const Header = () => {
 
     return (
     <AppBar position="fixed" style={{ background: '#42a5f5' }} sx={{ width: "100%" }}>
-        <Container maxWidth="xl">
         <Toolbar disableGutters>
-            <img src="./Otto_moto.png" className="max-screen"/>
+            <img src="./Otto_moto.png" className="header-photo"/>
             <Typography
             variant="h6"
             noWrap
@@ -40,25 +39,6 @@ const Header = () => {
             Otto Moto
             </Typography>
 
-            <img src="./Otto_moto.png" className="min-screen"/>
-            <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-                mr: 2,
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none"
-            }}
-            >
-            Otto Moto
-            </Typography>
             <div className="header-button">
                 <Button component={Link} to="/login" variant="contained">Login</Button>
                 <Button component={Link} to="/register" variant="contained">Register</Button>
@@ -66,7 +46,6 @@ const Header = () => {
                 <Button component={Link} to="/DataTmp" variant="contained">Panier</Button>
             </div>
         </Toolbar>
-        </Container>
     </AppBar>
     )
 };
