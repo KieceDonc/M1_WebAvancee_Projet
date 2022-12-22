@@ -13,3 +13,4 @@ function api<T>(url:string):Promise<T>{
 }
 
 export {api};
+
