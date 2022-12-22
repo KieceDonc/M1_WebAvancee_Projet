@@ -6,6 +6,7 @@ import HomePage from './HomePage'
 import Data from './Data'
 import CharteUtilisation from './CharteUtilisation'
 import Contact from './Contact'
+import CarPage from './CarPage'
 import Button from "@mui/material/Button";
 import { Link,BrowserRouter as Router,Route,Routes } from 'react-router-dom'
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/DataTmp" element={<Data />} />
             <Route path="/CharteUtilisation" element={<CharteUtilisation />} />
             <Route path="/Contact" element={<Contact />} />
+            <Route path="/CarPage" element={<CarPage />} />
           </Routes>
         </div>
         <Footer/>
