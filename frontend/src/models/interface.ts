@@ -22,7 +22,7 @@ interface Devis {
     data:JsonDevis;
 }
 
-interface JsonDevis {
+export interface JsonDevis {
     totalprice : number;
     CarinDevis : Car[];
 }

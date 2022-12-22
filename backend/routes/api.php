@@ -21,4 +21,6 @@ Route::post("register",[UserController::class,'register']);
 Route::post("login",[UserController::class,"login"]);
 Route::post("profile",[UserController::class,"profile"]);
 Route::get("carModel",[ControllerData::class,"data"]); 
-
+Route::post("Postdevis",[ControllerData::class,"postDevis"]);
+Route::get("devis",[ControllerData::class,"devis"]);
+Route::get("alldevis",[ControllerData::class,"alldevis"]);
