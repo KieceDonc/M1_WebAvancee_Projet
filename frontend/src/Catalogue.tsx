@@ -18,6 +18,7 @@ import {
   OutlinedInput,
   Typography,
 } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 function Catalogue() {
   const data = useAppSelector((state) => state.cardata.cardata)
@@ -56,11 +57,10 @@ function Catalogue() {
   }, [])
 
   React.useEffect(() => {
-      if(tabData.length>1){
-        TrieAlpha=='1'?TriAlphabetique(true):TriAlphabetique(false);
-      }
-}, [tabData])
-
+    if (tabData.length > 1) {
+      TrieAlpha == '1' ? TriAlphabetique(true) : TriAlphabetique(false)
+    }
+  }, [tabData])
 
   // Useful function
 
@@ -93,7 +93,6 @@ function Catalogue() {
     if (!enter) {
       settabData(tabData.reverse())
     }
-
   }
 
   const TriPerType = (enter: any) => {
@@ -219,7 +218,9 @@ function Catalogue() {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small">Aller sur la page</Button>
+            <Button component={Link} to={'/carPage/' + item.id} variant="contained" size="small">
+              Aller sur la page
+            </Button>
           </CardActions>
         </Card>
       ))}

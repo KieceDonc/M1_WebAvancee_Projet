@@ -1,13 +1,7 @@
-import { api } from "api";
+import { api } from "../helpers/api.js";
 import type { JsonDevis } from '../models/interface'
 import { useAppSelector } from '../app/hooks.js'
-const data = useAppSelector((state) => state.cardata.cardata)
-let dataTab: any[] = Object.values(data.dataCar)
 
-async function getCarbyID(id: number) {
-  return dataTab.filter((item) => item.id == id);
-
-}
 
 async function PostDevis(id: number, Devis: JsonDevis) {
   let body = {id , Devis}
@@ -32,4 +26,4 @@ async function getAllDevis()
   return result;
 }
 
-export {getAllDevis,getDevisbyID,getCarbyID,PostDevis}
+export {getAllDevis,getDevisbyID,PostDevis}

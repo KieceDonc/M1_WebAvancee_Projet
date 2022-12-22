@@ -51,7 +51,7 @@ function HomePage() {
             <Button
               sx={{ ml: 'auto', fontWeight: 600 }}
               component={Link}
-              to="/car/1"
+              to={"/carPage/"+item.id}
               variant="contained">
               Voir la page
             </Button>
