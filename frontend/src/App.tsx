@@ -15,23 +15,23 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
-  
   return (
     <Router>
-        <Header/>
-        <div className="Routes">
-          <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/Catalogue" element={<Catalogue />} />
-            <Route path="/CharteUtilisation" element={<CharteUtilisation />} />
-            <Route path="/Contact" element={<Contact />} />
-            <Route path="/CarPage/:id" element={<CarPage />} />
-          </Routes>
-        </div>
-        <Footer/>
+      <Header />
+      <div className="Routes">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/Catalogue" element={<Catalogue />} />
+          <Route path="/CharteUtilisation" element={<CharteUtilisation />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/CarPage/:id" element={<CarPage />} />
+          <Route path="/Cart" element={<Cart />} />
+        </Routes>
+      </div>
+      <Footer />
     </Router>
   )
 }

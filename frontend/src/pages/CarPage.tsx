@@ -6,11 +6,41 @@ import { useParams } from 'react-router-dom'
 import './CarPage.css'
 import { useAppSelector } from '../app/hooks.js'
 
+
 function CarPage() {
+
+  let cars: any[] = [];
+
   let { id } = useParams()
   const data = useAppSelector((state) => state.cardata.cardata)
   let dataTab: any[] = Object.values(data.dataCar)
   let car = dataTab.filter((item) => item.id == id)[0]
+
+  function inCars(car: any) {
+    for (let i = 0; i < cars.length; i++) {
+        if (cars[i].id === car.id) {
+            return true;
+        }
+    }
+
+    return false;
+  }
+
+  function addCarToCart(){
+    let json: string|null =  localStorage.getItem("cars");
+
+    if(json != null){
+      cars = JSON.parse(json);
+    }
+
+    
+    if(!inCars(car)){
+      cars = [...cars, car]
+
+      localStorage.setItem("cars",JSON.stringify(cars));
+    }
+  }
+  
   return (
     <div>
       <Header />
@@ -26,7 +56,7 @@ function CarPage() {
             alt="Audi A7 photo"
           />
         </div>
-        <button className="CarButton">Ajouter au panier</button>
+        <button className="CarButton" onClick={addCarToCart}>Ajouter au panier</button>
         <div className="CarDescription">
           <h2 className="CarDescriptionTitle">Description</h2>
           <p>{car.description}</p>
