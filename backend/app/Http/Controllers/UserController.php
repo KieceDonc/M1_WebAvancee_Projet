@@ -49,7 +49,7 @@ class UserController extends Controller
 
     function isAdmin(Request $req)
     {
-        $isAdmin = DB::table("Users")->where('email', $req->email)->get()->first();
-        return $isAdmin;
+        $isAdmin = DB::table("Users")->where('email', $req->email)->first();
+        return $isAdmin->isAdmin;
     }
 }

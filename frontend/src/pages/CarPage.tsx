@@ -23,7 +23,7 @@ function CarPage() {
     }
     
     let carClone = JSON.parse(JSON.stringify(car));
-    carClone.id = new Date();
+    carClone.id = car.id;
     cars = [...cars, carClone]
 
     localStorage.setItem("cars",JSON.stringify(cars));
