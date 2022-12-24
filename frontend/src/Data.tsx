@@ -1,4 +1,4 @@
-import { useAppSelector,useAppDispatch } from "./app/hooks.js";
+import { useAppSelector,useAppDispatch } from "./app/hooks";
 
 function Data(){
     const data  = useAppSelector((state) => state.cardata.cardata);

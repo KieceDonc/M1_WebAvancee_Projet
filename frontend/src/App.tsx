@@ -12,6 +12,8 @@ import Cart from './Cart'
 import Button from '@mui/material/Button'
 import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
+import React from 'react';
+
 /* Importation des composants */
 import Header from './Header'
 import Footer from './Footer'
