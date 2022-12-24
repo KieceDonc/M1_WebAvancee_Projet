@@ -1,10 +1,10 @@
 /* Importation des composants */
-import Header from './Header'
+import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
 
 /* Importation css */
 import './CarPage.css'
-import { useAppSelector } from './app/hooks.js'
+import { useAppSelector } from '../app/hooks.js'
 
 
 function CarPage() {
