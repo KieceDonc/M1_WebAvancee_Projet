@@ -9,36 +9,26 @@ import { useAppSelector } from './app/hooks.js'
 
 function CarPage() {
 
-  let cars: any[] = [];
 
   let { id } = useParams()
   const data = useAppSelector((state) => state.cardata.cardata)
   let dataTab: any[] = Object.values(data.dataCar)
   let car = dataTab.filter((item) => item.id == id)[0]
 
-  function inCars(car: any) {
-    for (let i = 0; i < cars.length; i++) {
-        if (cars[i].id === car.id) {
-            return true;
-        }
-    }
-
-    return false;
-  }
-
   function addCarToCart(){
+    let cars: object[] = [];
     let json: string|null =  localStorage.getItem("cars");
 
     if(json != null){
       cars = JSON.parse(json);
     }
-
     
-    if(!inCars(car)){
-      cars = [...cars, car]
+    let carClone = JSON.parse(JSON.stringify(car));
+    carClone.id = new Date();
+    cars = [...cars, carClone]
 
-      localStorage.setItem("cars",JSON.stringify(cars));
-    }
+    localStorage.setItem("cars",JSON.stringify(cars));
+  
   }
   
   return (
