@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom'
 
 /* Importation css */
 import './CarPage.css'
-import { useAppSelector } from '../app/hooks.js'
-
+import { useAppSelector } from '../app/hooks'
 
 function CarPage() {
 

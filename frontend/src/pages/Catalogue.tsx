@@ -1,5 +1,5 @@
 import './Catalogue.css'
-import { useAppSelector, useAppDispatch } from '../app/hooks.js'
+import { useAppSelector, useAppDispatch } from '../app/hooks'
 import * as React from 'react'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
