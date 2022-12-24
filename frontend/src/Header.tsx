@@ -46,7 +46,7 @@ const Header = () => {
           <Button component={Link} to="/profile" variant="contained">
             Profile
           </Button>
-          <Button component={Link} to="/DataTmp" variant="contained">
+          <Button component={Link} to="/cart" variant="contained">
             Panier
           </Button>
         </div>
