@@ -1,19 +1,18 @@
 import './App.css'
-import Register from './Register'
-import Login from './Login'
-import Profile from './Profile'
-import HomePage from './HomePage'
-import Data from './Data'
-import CharteUtilisation from './CharteUtilisation'
-import Contact from './Contact'
-import CarPage from './CarPage'
-import Catalogue from './Catalogue'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Profile from './pages/Profile'
+import HomePage from './pages/HomePage'
+import CharteUtilisation from './pages/CharteUtilisation'
+import Contact from './pages/Contact'
+import CarPage from './pages/CarPage'
+import Catalogue from './pages/Catalogue'
 import Button from "@mui/material/Button";
 import { Link,BrowserRouter as Router,Route,Routes } from 'react-router-dom'
 
 /* Importation des composants */
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   
@@ -26,7 +25,6 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/DataTmp" element={<Data />} />
             <Route path="/Catalogue" element={<Catalogue />} />
             <Route path="/CharteUtilisation" element={<CharteUtilisation />} />
             <Route path="/Contact" element={<Contact />} />
