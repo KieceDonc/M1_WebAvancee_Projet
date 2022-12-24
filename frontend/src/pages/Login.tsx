@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './Login.css';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
     return (
@@ -34,6 +35,7 @@ function Login(){
 
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
+    const navigate = useNavigate()
 
     useEffect(()=>{
         if (localStorage.getItem("user-info"))
@@ -59,6 +61,7 @@ function Login(){
         if(!result.error) 
         {
             localStorage.setItem("user-info",JSON.stringify(result));
+            navigate('/')
         }
         else{
             console.log("error mot de passe ou email incorrect");
@@ -115,6 +118,7 @@ function Login(){
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={(e)=>setEmail(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -125,16 +129,13 @@ function Login(){
                 type="password"
                 id="password"
                 autoComplete="current-password"
-              />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Se rappeler de moi"
+                onChange={(e)=>setPassword(e.target.value)}
               />
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={connexion}
               >
                 Connexion
               </Button>
@@ -145,7 +146,7 @@ function Login(){
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/register" variant="body2">
                     {"Vous n'avez pas de compte ? Inscrivez-vous"}
                   </Link>
                 </Grid>

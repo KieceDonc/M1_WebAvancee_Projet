@@ -5,7 +5,7 @@ import { Box, Button, Card, IconButton, Typography } from '@mui/material'
 import { useAppSelector, useAppDispatch } from './app/hooks'
 
 /* Importation des composants */
-import Header from './Header'
+import Header from '../components/Header.js'
 
 /* Importation css */
 import './HomePage.css'

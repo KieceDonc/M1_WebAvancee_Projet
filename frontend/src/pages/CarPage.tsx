@@ -1,5 +1,5 @@
 /* Importation des composants */
-import Header from './Header'
+import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
 
 /* Importation css */
@@ -7,10 +7,29 @@ import './CarPage.css'
 import { useAppSelector } from './app/hooks'
 
 function CarPage() {
+
+
   let { id } = useParams()
   const data = useAppSelector((state) => state.cardata.cardata)
   let dataTab: any[] = Object.values(data.dataCar)
   let car = dataTab.filter((item) => item.id == id)[0]
+
+  function addCarToCart(){
+    let cars: object[] = [];
+    let json: string|null =  localStorage.getItem("cars");
+
+    if(json != null){
+      cars = JSON.parse(json);
+    }
+    
+    let carClone = JSON.parse(JSON.stringify(car));
+    carClone.id = new Date();
+    cars = [...cars, carClone]
+
+    localStorage.setItem("cars",JSON.stringify(cars));
+  
+  }
+  
   return (
     <div>
       <Header />
@@ -26,7 +45,7 @@ function CarPage() {
             alt="Audi A7 photo"
           />
         </div>
-        <button className="CarButton">Ajouter au panier</button>
+        <button className="CarButton" onClick={addCarToCart}>Ajouter au panier</button>
         <div className="CarDescription">
           <h2 className="CarDescriptionTitle">Description</h2>
           <p>{car.description}</p>

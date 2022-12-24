@@ -13,6 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
   return (
@@ -35,11 +36,12 @@ function Register()
     const [last_name,setLast_name]=useState("");
     const [password,setPassWord]=useState("");
     const [email,setEmail]=useState("");
+    const navigate = useNavigate()
     async function signup()
     {
         let user={first_name,last_name,password,email};
 
-        let result=await fetch("http://localhost:51001/api/register",{
+        let result:any=await fetch("http://localhost:51001/api/register",{
             method:"POST",
             body:JSON.stringify(user),
             headers:{
@@ -52,6 +54,7 @@ function Register()
         if(!result.error) 
         {
             localStorage.setItem("user-info",JSON.stringify(result));
+            navigate('/')
         }
         else{
             console.log(result.error);
@@ -95,6 +98,7 @@ function Register()
                     id="firstName"
                     label="Prénom"
                     autoFocus
+                    onChange={(e)=>setFirst_name(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -105,6 +109,7 @@ function Register()
                     label="Nom"
                     name="lastName"
                     autoComplete="family-name"
+                    onChange={(e)=>setLast_name(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -115,6 +120,7 @@ function Register()
                     label="Adresse Email"
                     name="email"
                     autoComplete="email"
+                    onChange={(e)=>setEmail(e.target.value)}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -126,26 +132,21 @@ function Register()
                     type="password"
                     id="password"
                     autoComplete="new-password"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <FormControlLabel
-                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                    label="Je souhaite recevoir par courrier électronique de l'inspiration, des promotions commerciales et des mises à jour."
+                    onChange={(e)=>setPassWord(e.target.value)}
                   />
                 </Grid>
               </Grid>
               <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={signup}
               >
                 Inscription
               </Button>
               <Grid container justifyContent="flex-end">
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/login" variant="body2">
                   Vous avez déjà un compte ? Connectez-vous
                   </Link>
                 </Grid>
