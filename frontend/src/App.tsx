@@ -7,6 +7,8 @@ import CharteUtilisation from './pages/CharteUtilisation'
 import Contact from './pages/Contact'
 import CarPage from './pages/CarPage'
 import Catalogue from './pages/Catalogue'
+import Cart from "./pages/Cart"
+
 import Button from "@mui/material/Button";
 import { Link,BrowserRouter as Router,Route,Routes } from 'react-router-dom'
 
