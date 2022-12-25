@@ -37,14 +37,6 @@ function Devis() {
   const randomNumber = getRandomInt(1, 10000)
   const state = { date: new Date() }
 
-  function addCar(car: any) {
-    setCars([...cars, car])
-  }
-
-  function removeCar(car: any) {
-    setCars(cars.filter((c) => c !== car))
-  }
-
   function totalPriceHT(cars: any) {
     let price = 0
     cars.forEach((car: { price: number }) => {
