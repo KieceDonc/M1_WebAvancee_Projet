@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Car;
 use App\Models\Devis;
+use App\Models\User;
 
 class ControllerData extends Controller
 {
@@ -30,7 +31,7 @@ class ControllerData extends Controller
 
     public function alldevis()
     {
-        return response()->json([getAllDevis()]);
+        return response()->json(["Devis" => getAllDevis(), 'User' => getAllUser()]);
     }
 }
 
@@ -48,4 +49,9 @@ function PostDevis(Request $request)
 function getAllDevis()
 {
     return Devis::all()->keyBy('id');
+}
+
+function getAllUser()
+{
+    return User::all()->keyBy("id");
 }

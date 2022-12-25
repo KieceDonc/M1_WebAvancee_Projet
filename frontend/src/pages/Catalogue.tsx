@@ -65,7 +65,7 @@ function Catalogue() {
 
   const TriAlphabetique = (enter: boolean,tab:any) => {
     settabData(
-      tab.sort(function (a, b) {
+      tab.sort(function (a:any, b:any) {
         let aname: string = a.name
         let bname: string = b.name
         return aname.localeCompare(bname)
@@ -107,8 +107,8 @@ function Catalogue() {
           <MenuItem value={2}>Z-A</MenuItem>
         </Select>
       </FormControl>
-      <TriType type={type} tabdata={dataTab} onSort={(tabDataTrie) => settabType(tabDataTrie)} />
-      <TriPrix tabdata={dataTab} onSort={(tabDataTrie) => settabPrix(tabDataTrie)} />
+      <TriType type={type} tabdata={dataTab} onSort={(tabDataTrie:any) => settabType(tabDataTrie)} />
+      <TriPrix tabdata={dataTab} onSort={(tabDataTrie:any) => settabPrix(tabDataTrie)} />
       <Typography variant="h5" textAlign="center" marginBottom={'20px'}>
         Liste des voitures
       </Typography>

@@ -7,24 +7,32 @@ function Profile() {
   const [secondPassword, setVerifyPassword] = useState('')
   const [IsAdminUser, setIsAdmin] = useState(false)
   const [OurDevis, setOurDevis] = useState<any>(null)
+  const [DevisAdminTab, setDevisAdmin] = useState(null)
 
   useEffect(() => {
-    // isAdmin()
+    isAdmin()
     getDevis()
   }, [])
 
-  // async function isAdmin(): Promise<void> {
-  //   let toshow = JSON.parse(localStorage.getItem('user-info') || '')
-  //   let result: any = await fetch('http://localhost:51001/api/isAdmin?email=' + toshow.email, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Accept: 'application/json',
-  //     },
-  //   })
-  //   result = await result.json()
-  //   setIsAdmin(result.isAdmin)
-  // }
+  useEffect(() => {
+    if (IsAdminUser) {
+      DevisAdmin()
+    }
+  }, [IsAdminUser])
+
+  async function isAdmin(): Promise<void> {
+    let toshow = JSON.parse(localStorage.getItem('user-info') || '')
+    let result: any = await fetch('http://localhost:51001/api/isAdmin?email=' + toshow.email, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+
+    result = await result.json()
+    setIsAdmin(result.isAdmin)
+  }
 
   const getDevis = async (): Promise<any> => {
     let toshow = JSON.parse(localStorage.getItem('user-info') || '')
@@ -38,6 +46,18 @@ function Profile() {
     result = await result.json()
     setOurDevis(Object.values(result.Devis))
     return Object.values(result.Devis)
+  }
+
+  const DevisAdmin = async (): Promise<any> => {
+    let result: any = await fetch('http://localhost:51001/api/alldevis', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
+    result = await result.json()
+    setDevisAdmin(result)
   }
 
   async function ChangePassword() {
@@ -61,16 +81,18 @@ function Profile() {
       <div>Mes Devis</div>
       <table>
         <tbody>
-        {OurDevis != null
-          ? OurDevis.map((item: any,index:number) => (
-              <tr>
-                <td>{index+1}</td>
-                <td>{item.data}</td>
-              </tr>
-            ))
-          : ''}
-          </tbody>
+          {OurDevis != null
+            ? OurDevis.map((item: any, index: number) => (
+                <tr>
+                  <td>{index + 1}</td>
+                  <td>{JSON.stringify(item.data)}</td>
+                </tr>
+              ))
+            : ''}
+        </tbody>
       </table>
+      {/* Todo rajouter les devis pour tous les utilisateurs */}
+      {IsAdminUser ? <div>Admin</div> : ''}
       <div>
         <h1>Nouveau password</h1>
         <input
