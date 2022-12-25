@@ -1,4 +1,10 @@
 import './App.css'
+import Button from '@mui/material/Button'
+import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+/* Importation des composants */
+import Header from './Header'
+import Footer from './Footer'
 import Register from './Register'
 import Login from './Login'
 import Profile from './Profile'
@@ -9,12 +15,7 @@ import Contact from './Contact'
 import CarPage from './CarPage'
 import Catalogue from './Catalogue'
 import Cart from './Cart'
-import Button from '@mui/material/Button'
-import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-
-/* Importation des composants */
-import Header from './Header'
-import Footer from './Footer'
+import Devis from './Devis'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/CarPage/:id" element={<CarPage />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/Devis" element={<Devis />} />
         </Routes>
       </div>
       <Footer />
