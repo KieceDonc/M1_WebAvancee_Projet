@@ -1,0 +1,35 @@
+.devis-title-1{
+    color: #90caf9;
+    margin-left: 5%;
+}
+
+.devis-title-2{
+    color: #2196f3;
+    margin-left: 80%;
+}
+
+.infos-societe{
+    margin-left: 5%;
+}
+
+.infos-client{
+    margin-left: 80%;
+}
+
+.cart-item{
+    margin-left: 5%;
+}
+
+.Routes .devis .css-11xur9t-MuiPaper-root-MuiTableContainer-root {
+    padding: 30px;
+    width: auto;
+    background-color: #242424;
+}
+
+.tableau-devis{
+    background-color: #0d47a1;
+}
+
+.devis-end{
+    margin-left: 5%;
+}
