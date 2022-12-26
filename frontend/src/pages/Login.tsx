@@ -21,7 +21,7 @@ function Copyright(props: any) {
       <Typography variant="body2" color="text.secondary" align="center" {...props}>
         {'Copyright © '}
         <Link color="inherit" href="https://mui.com/">
-          Your Website
+          Otto Moto
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -140,11 +140,6 @@ function Login(){
                 Connexion
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Mot de passe oublié ?
-                  </Link>
-                </Grid>
                 <Grid item>
                   <Link href="/register" variant="body2">
                     {"Vous n'avez pas de compte ? Inscrivez-vous"}

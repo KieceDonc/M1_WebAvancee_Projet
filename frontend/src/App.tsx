@@ -8,7 +8,7 @@ import Contact from './pages/Contact'
 import CarPage from './pages/CarPage'
 import Catalogue from './pages/Catalogue'
 import Cart from "./pages/Cart"
-import Devis from './Devis'
+import Devis from './components/Devis'
 
 import Button from "@mui/material/Button";
 import { Link,BrowserRouter as Router,Route,Routes } from 'react-router-dom'
@@ -34,7 +34,6 @@ function App() {
           <Route path="/Contact" element={<Contact />} />
           <Route path="/CarPage/:id" element={<CarPage />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/Devis" element={<Devis />} />
         </Routes>
       </div>
       <Footer />

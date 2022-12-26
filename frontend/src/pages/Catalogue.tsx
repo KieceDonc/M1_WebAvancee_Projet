@@ -77,7 +77,6 @@ function Catalogue() {
   }
 
   function Trieraveclestri() {
-    console.log(tabPrix,tabType)
     let i = tabPrix.filter(element => tabType.includes(element));
     TrieAlpha == '1' ? TriAlphabetique(true,i) : TriAlphabetique(false,i)
   }

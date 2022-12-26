@@ -33,3 +33,14 @@
 .devis-end{
     margin-left: 5%;
 }
+
+#element-to-print{
+    min-width:29.7cm;
+    min-height:21cm;
+    transform: scale(0.8);
+    transform-origin: left;
+    margin-left:10px;
+    font-size: large;
+    /* display: none; */
+    color : black
+}
