@@ -53,9 +53,7 @@ function Login() {
         Accept: 'application/json',
       },
     })
-    console.log(result)
     result = await result.json()
-    
 
     if (!result.error) {
       localStorage.setItem('user-info', JSON.stringify(result))
