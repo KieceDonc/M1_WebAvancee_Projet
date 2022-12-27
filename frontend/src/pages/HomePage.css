@@ -21,7 +21,8 @@ h1 {
 }
 
 .img-center{
-    flex:1
+    flex:1;
+    max-width:25%
 }
 
 .div-cara{

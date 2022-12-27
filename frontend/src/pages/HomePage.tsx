@@ -14,6 +14,7 @@ import { Car } from '../models/interface'
 
 function HomePage() {
   const data = useAppSelector((state) => state.cardata.cardata)
+  const pictures = useAppSelector((state)=>state.cardata.picturesdata)
   let dataTab: Car[] = Object.values(data.dataCar)
   const shuffled: Car[] = dataTab.sort(() => 0.5 - Math.random())
   let selected: Car[] = shuffled.slice(0, 3)
@@ -42,8 +43,7 @@ function HomePage() {
           <div className="div-cara">
             <img
               className="img-center"
-              src="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286"
-              srcSet="https://images.unsplash.com/photo-1527549993586-dff825b37782?auto=format&fit=crop&w=286&dpr=2"
+              src={"/"+pictures[item.id].srcPicturesCar}
               alt="image"
             />
             <Typography className="typoright">{item.description}</Typography>

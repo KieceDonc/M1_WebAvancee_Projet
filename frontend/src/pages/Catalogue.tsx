@@ -130,7 +130,7 @@ function Catalogue() {
               component="img"
               alt="Contemplative Reptile"
               height="140"
-              image={"/"+pictures[item.id].srcPicturesCar}
+              image={pictures[item.id].srcPicturesCar?"/"+pictures[item.id].srcPicturesCar:""}
               title="Contemplative Reptile"
             />
             <CardContent>

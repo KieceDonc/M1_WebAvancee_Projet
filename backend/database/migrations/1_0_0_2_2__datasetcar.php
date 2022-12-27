@@ -371,7 +371,7 @@ return new class extends Migration {
           ,
           [
             'idCar'=>20,
-            'srcPicturesCar'=>'Porshe_cayenne.jpg'
+            'srcPicturesCar'=>'Porsche_cayenne.jpg'
           ],
           [
             'idCar'=>15,
@@ -396,6 +396,42 @@ return new class extends Migration {
           [
             'idCar'=>26,
             'srcPicturesCar'=>'Toyota_supra.jpg'
+          ],
+          [
+            'idCar'=>30,
+            'srcPicturesCar'=>'Auqi_q8_etron.jpg'
+          ],
+          [
+            'idCar'=>6,
+            'srcPicturesCar'=>'Fiat_500.jpg'
+          ],
+          [
+            'idCar'=>29,
+            'srcPicturesCar'=>'Ford_figo_diesel_titanium.jpg'
+          ],
+          [
+            'idCar'=>27,
+            'srcPicturesCar'=>'Maruti_800_ac.jpeg'
+          ],
+          [
+            'idCar'=>10,
+            'srcPicturesCar'=>'Mercedes-Benz_amg_gt.jpg'
+          ],
+          [
+            'idCar'=>18,
+            'srcPicturesCar'=>'Nissan_370_z.jpg'
+          ],
+          [
+            'idCar'=>21,
+            'srcPicturesCar'=>'Renault_clio.jpg'
+          ],
+          [
+            'idCar'=>28,
+            'srcPicturesCar'=>'Renault_kwid_rxt.jpg'
+          ],
+          [
+            'idCar'=>9,
+            'srcPicturesCar'=>'Mazda_rx8.jpg'
           ]
           ]);
           DB::table("Car_Photos")->insert($dataPictures);
