@@ -18,8 +18,8 @@ class ControllerData extends Controller
 
     public function devis(Request $request)
     {
-        $email = $request->id;
-        $id = DB::table("Users")->where("email", $email)->first();
+        $id = $request->id;
+        $id = DB::table("Users")->where("id", $id)->first();
         $data = DB::table("Devis")->where('idUtilisateur', $id->id)->get();
         return response()->json(["Devis" => $data]);
     }
@@ -42,7 +42,7 @@ function getdata()
 
 function PostDevis(Request $request)
 {
-    $id = DB::table("Users")->where("email", $request->input("id"))->first();
+    $id = DB::table("Users")->where("id", $request->input("id"))->first();
     DB::table("Devis")->insert(["idUtilisateur" => $id->id, "data" => $request->input("JSONDevis")]);
 }
 

@@ -2,7 +2,6 @@ import { Button } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { getAllDevis } from '../helpers/helpers.js'
 import Devis from '../components/Devis'
-import * as html2pdf from 'html2pdf.js'
 
 function Profile() {
   const [newpassword, setNewPassword] = useState('')
@@ -28,7 +27,7 @@ function Profile() {
 
   async function isAdmin(): Promise<void> {
     let toshow = JSON.parse(localStorage.getItem('user-info') || '')
-    let result: any = await fetch('http://localhost:51001/api/isAdmin?email=' + toshow.email, {
+    let result: any = await fetch('http://localhost:51001/api/isAdmin?id=' + toshow.id, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +42,7 @@ function Profile() {
 
   const getDevis = async (): Promise<any> => {
     let toshow = JSON.parse(localStorage.getItem('user-info') || '')
-    let result: any = await fetch('http://localhost:51001/api/devis?id=' + toshow.email, {
+    let result: any = await fetch('http://localhost:51001/api/devis?id=' + toshow.id, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -52,7 +51,6 @@ function Profile() {
     })
     result = await result.json()
     setOurDevis(Object.values(result.Devis))
-    return Object.values(result.Devis)
   }
 
   const DevisAdmin = async (): Promise<any> => {
@@ -122,7 +120,6 @@ function Profile() {
             : ''}
         </tbody>
       </table>
-      {/* Todo rajouter les devis pour tous les utilisateurs */}
       {IsAdminUser ? (
         <div>
           <div>Tous les devis</div>

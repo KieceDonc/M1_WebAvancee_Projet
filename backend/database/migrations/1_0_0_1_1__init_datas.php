@@ -17,6 +17,7 @@ return new class extends Migration {
 
       $dataUsers = ([
         [
+            "id"=>Str::uuid(),
             'first_name'=>"Hugo",
             "last_name"=>"Admin",
             "email"=>"admin@admin.test",
@@ -26,6 +27,7 @@ return new class extends Migration {
             "account_modified"=>null,
         ],
         [
+            "id"=>Str::uuid(),
             'first_name'=>"Hugo",
             "last_name"=>"Users",
             "email"=>"users@admin.test",

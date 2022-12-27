@@ -11,7 +11,7 @@ return new class extends Migration {
    */
   public function up() {
     Schema::create('Users', function (Blueprint $table) {
-      $table->increments('id');
+      $table->uuid('id')->primary();
       $table->string('first_name');
       $table->string('last_name');
       $table->string('email');
@@ -33,7 +33,7 @@ return new class extends Migration {
 
     Schema::create('Devis',function(Blueprint $table){
       $table->increments('id');
-      $table->integer("idUtilisateur");
+      $table->uuid("idUtilisateur");
       $table->foreign('idUtilisateur')->references("id")->on("Users");
       $table->json("data");
     });

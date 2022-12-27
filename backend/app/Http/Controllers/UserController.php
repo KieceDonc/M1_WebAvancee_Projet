@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-
-use function PHPUnit\Framework\isEmpty;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -19,7 +18,7 @@ class UserController extends Controller
         $user->email = $req->input("email");
         $requestVerify = DB::table("Users")->get()->where('email', $req->input("email"));
         if ($requestVerify->isEmpty() == 1) {
-            DB::table("Users")->insert([
+            DB::table("Users")->insert(["id"=>Str::uuid(),
                 "first_name" => $req->input("first_name"), "last_name" => $req->input("last_name"), "email" => $req->input("email"), "password" => Hash::make($req->input("password")), "isAdmin" => false
             ]);
             return $user;
@@ -30,11 +29,12 @@ class UserController extends Controller
 
     function login(Request $req)
     {
-        $user = User::where('email', $req->email)->first();
+        $user = DB::table("Users")->where('email', $req->email)->first();
         if (!$user || !Hash::check($req->password, $user->password)) {
             return ["error" => "Email or password incorrect"];
         }
         $userReturn = new User;
+        $userReturn->id = $user->id;
         $userReturn->first_name = $user->first_name;
         $userReturn->last_name = $user->last_name;
         $userReturn->email = $user->email;
@@ -43,13 +43,13 @@ class UserController extends Controller
 
     function changePassword(Request $req)
     {
-        DB::table("Users")->where('email', $req->email)->update(['password' => Hash::make($req->input("password"))], ["account_modified" => date("d/m/Y H:i:s")]);
+        DB::table("Users")->where('id', $req->id)->update(['password' => Hash::make($req->input("password"))], ["account_modified" => date("d/m/Y H:i:s")]);
         return ["Success" => "Password changed"];
     }
 
     function isAdmin(Request $req)
     {
-        $isAdmin = DB::table("Users")->where('email', $req->email)->first();
+        $isAdmin = DB::table("Users")->where('id', $req->id)->first();
         return $isAdmin;
     }
 }
