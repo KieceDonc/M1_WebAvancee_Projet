@@ -21,6 +21,7 @@ import { Car } from '../models/interface'
 
 function Catalogue() {
   const data = useAppSelector((state) => state.cardata.cardata)
+  const pictures = useAppSelector((state)=>state.cardata.picturesdata)
 
   // Etat des tries actifs
   const [TrieAlpha, setTrieAlpha] = React.useState<string>('1')
@@ -129,7 +130,7 @@ function Catalogue() {
               component="img"
               alt="Contemplative Reptile"
               height="140"
-              image="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+              image={"/"+pictures[item.id].srcPicturesCar}
               title="Contemplative Reptile"
             />
             <CardContent>

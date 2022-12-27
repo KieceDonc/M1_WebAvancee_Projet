@@ -3,10 +3,12 @@ import { api } from "../helpers/api.js";
 
 type InitialState = {
     cardata:any;
+    picturesdata:any;
 }
 
 const initialState:InitialState={
     cardata:await api("http://localhost:51001/api/carModel"),
+    picturesdata:await api("http://localhost:51001/api/picturesCar")
 }
 
 const cardata = createSlice({

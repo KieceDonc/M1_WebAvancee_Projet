@@ -25,3 +25,4 @@ Route::post("Postdevis",[ControllerData::class,"postDevis"]);
 Route::get("devis",[ControllerData::class,"devis"]);
 Route::get("alldevis",[ControllerData::class,"alldevis"]);
 Route::get("isAdmin",[UserController::class,"isAdmin"]);
+Route::get("picturesCar",[ControllerData::class,"allphotos"]);

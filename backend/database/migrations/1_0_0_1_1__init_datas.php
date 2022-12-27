@@ -41,6 +41,7 @@ return new class extends Migration {
 
      $dataCar = ([
         [
+            "id"=>27,
             "name"=>"Maruti 800 AC",
             "price"=>60000,
             "type"=>"Citadine",
@@ -49,6 +50,7 @@ return new class extends Migration {
             "description"=>"Maruti 800 AC Uniq est le modèle haut de gamme de la gamme 800 et le prix du modèle haut de gamme 800 est de 2,19 ₹ Lakh.Il renvoie un kilométrage certifié de 14,22 kmpl. Cette variante AC Uniq est livrée avec un moteur produisant respectivement 37 @ 5000 et 59 @ 2500 de puissance maximale et de couple maximal. Maruti 800 AC Uniq est disponible en transmission manuelle et proposé en 2 couleurs : Wine Red et Pearl Silver."
         ],
         [
+            "id"=>28,
             "name"=>"Renault KWID RXT",
             "price"=>315000,
             "type"=>"SUV",
@@ -57,14 +59,16 @@ return new class extends Migration {
             "description"=>"Renault Kwid RXT 1.0 est la variante essence de la gamme Renault Kwid et est au prix de ₹ 5,34 Lakh. Il renvoie un kilométrage certifié de 21,7 kmpl. Cette variante RXT 1.0 est livrée avec un moteur développant respectivement 67 ch à 5500 tr/min et 91 Nm à 4250 tr/min de puissance maximale et de couple maximal. Renault Kwid RXT 1.0 est disponible en boîte manuelle et proposé en 5 coloris : Zanskar Blue, Outback Bronze, Moonlight Silver, Fiery Red et Ice Cool White."
         ],
         [
+            "id"=>29,
             "name"=>"Ford Figo Diesel Titanium",
             "price"=>170000,
             "type"=>"Familiale",
             "nb_doors"=>5,
             "year"=>2010,
-            "description"=>"description"
+            "description"=>"La Ford Figo est une voiture familiale basée sur la Ford Fiesta de 2002 et vendue en Inde et en Afrique du Sud par le constructeur automobile américain Ford. Elle possède un petit moteur de 4 cylindres et offre 5 places."
         ],
         [
+            "id"=>30,
             "name"=>"Audi Q8 Etron",
             "price"=>86700,
             "type"=>"SUV",

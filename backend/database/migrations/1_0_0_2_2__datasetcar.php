@@ -13,6 +13,7 @@ return new class extends Migration {
     public function up() {
         $dataCar = ([
             [
+              "id"=>1,
               "year"=> 2018,
               "price"=> 74995,
               "nb_doors"=> 4,
@@ -26,6 +27,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>2,
               "year"=> 2018,
               "price"=> 6795,
               "nb_doors"=> 5,
@@ -35,6 +37,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>3,
               "year"=> 2018,
               "price"=> 995,
               "nb_doors"=> 5,
@@ -46,6 +49,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>4,
               "year"=> 2017,
               "price"=> 106750,
               "nb_doors"=> 2,
@@ -57,6 +61,7 @@ return new class extends Migration {
           
             ],
             [
+              "id"=>5,
               "year"=> 2018,
               "price"=> 999,
               "nb_doors"=> 6,
@@ -66,6 +71,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>6,
               "year"=> 2018,
               "price"=> 4490,
               "nb_doors"=> 4,
@@ -75,6 +81,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>7,
               "year"=> 2018,
               "price"=> 19695,
               "nb_doors"=> 5,
@@ -90,6 +97,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>8,
               "year"=> 2018,
               "price"=> 500,
               "nb_doors"=> 5,
@@ -103,6 +111,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>9,
               "year"=> 2018,
               "price"=> 1995,
               "nb_doors"=> 4,
@@ -112,6 +121,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>10,
               "year"=> 2017,
               "price"=> 157786,
               "nb_doors"=> 2,
@@ -125,6 +135,7 @@ return new class extends Migration {
              
             ],
             [
+              "id"=>11,
               "year"=> 2017,
               "price"=> 19150,
               "nb_doors"=> 5,
@@ -137,6 +148,7 @@ return new class extends Migration {
               "type"=> "Familiale"
             ],
             [
+              "id"=>12,
               "year"=> 2018,
               "price"=> 875,
               "nb_doors"=> 6,
@@ -147,6 +159,7 @@ return new class extends Migration {
               "type"=> "Familiale"
             ],
             [
+              "id"=>13,
               "year"=> 2017,
               "price"=> 19990,
               "nb_doors"=> 5,
@@ -157,6 +170,7 @@ return new class extends Migration {
               "type"=> "Berline"
             ],
             [
+              "id"=>14,
               "year"=> 2018,
               "price"=> 5998,
               "nb_doors"=> 5,
@@ -169,6 +183,7 @@ return new class extends Migration {
               "type"=> "SUV"
             ],
             [
+              "id"=>15,
               "year"=> 2018,
               "price"=> 7000,
               "nb_doors"=> 5,
@@ -181,6 +196,7 @@ return new class extends Migration {
               "type"=> "Electrique"
             ],
             [
+              "id"=>16,
               "year"=> 2018,
               "price"=> 4795,
               "nb_doors"=> 5,
@@ -189,6 +205,7 @@ return new class extends Migration {
               "type"=> "Berline"
             ],
             [
+              "id"=>17,
               "year"=> 2018,
               "price"=> 12295,
               "nb_doors"=> 5,
@@ -198,8 +215,190 @@ return new class extends Migration {
               La première Octavia a été fabriquée de 1959 à 1971. La marque a repris le nom en 1996 et créé une familiale sur la base de la plate-forme de la Volkswagen Golf. Depuis, quatre générations se succèdent : lancées en 1996 (Octavia I) puis en 2004 (Octavia II), en 2014 (Octavia III) puis en 2020 pour l'Octavia IV.",
               "type"=> "Familiale"
             ],
+            [
+              "id"=>18,
+              "year"=> 2018,
+              "price"=> 12950,
+              "nb_doors"=> 2,
+              "name"=> "Nissan 370 Z",
+              "type"=>"Sportive",
+              "description"=> "La 370Z est une voiture de sport du constructeur automobile japonais Nissan, remplaçante de la Nissan 350Z.",
+             
+            ],
+            [
+              "id"=>19,
+              "year"=> 2018,
+              "price"=> 795,
+              "nb_doors"=> 5,
+              "name"=> "Peugeot 306",
+              "type"=>"Citadine",
+              "description"=> "La Peugeot 306 est une automobile compacte du constructeur français Peugeot, commercialisée de 1993 à 2002 (1997 à 2002 pour le break et 1994 à 2002 pour le cabriolet et la berline). Elle a été produite à près de 3 millions d'exemplaires",
+             
+            ],
+            [
+              "id"=>20,
+              "year"=> 2018,
+              "price"=> 16495,
+              "nb_doors"=> 5,
+              "name"=> "Porsche Cayenne",
+              "type"=>"SUV",
+              "description"=> "Le Porsche Cayenne est un SUV haut de gamme fabriqué par la firme allemande Porsche. Lancée en décembre 2002 (955 puis 957 - Type 9PA), elle est renouvelée en mai 2010 (958 Type 92A) avant l'arrivée de la troisième génération présentée en septembre 2017 (Type PO536) ainsi que sa version Coupé. En décembre 2020, le constructeur annonce la production du millionième exemplaire de la Porsche Cayenne",
+             
+            ],
+            [
+              "id"=>21,
+              "year"=> 2018,
+              "price"=> 5495,
+              "nb_doors"=> 5,
+              "name"=> "Renault Clio",
+              "type"=>"Citadine",
+              "description"=> "La Renault Clio est une gamme d'automobile polyvalente du constructeur français Renault. Elle est lancée en 1990 (Clio I) et remplace la Renault Supercinq, puis en 1998 (Clio II), en 2005 (Clio III), renouvelée en 2012 (Clio IV) et en 2019 (Clio V).",
+             
+            ],
+            [
+              "id"=>22,
+              "year"=> 2018,
+              "price"=> 4685,
+              "nb_doors"=> 5,
+              "name"=> "SEAT Ibiza",
+              "type"=>"Citadine",
+              "description"=> "La Seat Ibiza est une citadine produite depuis 1984 par le constructeur automobile espagnol Seat, filiale du groupe allemand Volkswagen. La Seat Ibiza est un modèle très important pour la marque espagnole car elle représente près de 40 % de ses ventes annuelles.
+
+              Au vu de son succès, une version tricorps est développée en 1994 sur base du modèle de série. Pour la différencier de sa petite sœur, elle est dotée du nom de Cordoba.
+              
+              Aujourd'hui, la petite citadine de Seat compte déjà 5 versions à son actif, dont chacune a fait l'objet de restylage.",
+            ],
+            [
+              "id"=>23,
+              "year"=> 2017,
+              "price"=> 19999,
+              "nb_doors"=> 5,
+              "name"=> "Audi A7",
+              "type"=>"Berline",
+              "description"=> "L'A7, dite A7 Sportback, est une berline haut de gamme produite par le constructeur automobile allemand Audi à partir de 2018. Elle remplace la première génération d'A7 Sportback produite de 2010 à 2017.",
+             
+            ],
+            [
+              "id"=>24,
+              "year"=> 2018,
+              "price"=> 3490,
+              "nb_doors"=> 5,
+              "name"=> "BMW 5 Series",
+              "type"=>"Break",
+              "description"=> "La BMW Série 5 est une gamme de voitures berlines et breaks conçus par le constructeur allemand BMW. Cette série prend la succession en 1972 des 1500, 1800 et 2000 (E115).",
+             
+            ],
+            [
+              "id"=>25,
+              "year"=> 2018,
+              "price"=> 12995,
+              "nb_doors"=> 4,
+              "name"=> "Toyota GT86",
+              "type"=>"Sportive",
+              "description"=> "La Toyota GT86 est un coupé sportif à propulsion et moteur atmosphérique, produit par le constructeur automobile japonais Toyota à partir de 2012, en collaboration avec Subaru, qui la commercialise sous le nom de Subaru BRZ. Il a également été vendu sur certains marchés sous le nom de Toyota 86, ou Scion FR-S.",
+             
+            ],
+            [
+              "id"=>26,
+              "year"=> 2018,
+              "price"=> 29925,
+              "nb_doors"=> 2,
+              "type"=>"Sportive",
+              "name"=> "Toyota Supra",
+              "description"=> "La Toyota Supra (ou 'トヨタスープラ' en japonais) est une voiture de grand tourisme produite par le constructeur automobile japonais Toyota, de 1979 jusqu'en 2002, puis à partir de 2019. La voiture a connu quatre générations successives et une cinquième plus tardivement, communément appelées MK1, MK2, MK3, MK4 et MK5 (MK étant l'abréviation de mark).",
+             
+            ],
         ]);
         DB::table("Car")->insert($dataCar);
+
+        $dataPictures=([
+          [
+            "idCar"=>23,
+            "srcPicturesCar"=>"Audi_a7.jpg",
+          ],
+          [
+            'idCar'=>24,
+            "srcPicturesCar"=>"BMW_5_series.jpg"
+          ],
+          [
+            'idCar'=>1,
+            'srcPicturesCar'=>"Chevrolet_camaro.jpg"
+          ],
+          [
+            'idCar'=>2,
+            'srcPicturesCar'=>'Chrysler_300C.jpg'
+          ],
+          [
+            'idCar'=>3,
+            'srcPicturesCar'=>'Citroen_c3.jpeg'
+          ],
+          [
+            'idCar'=>11,
+            'srcPicturesCar'=>'Citroen_c4_cactus.jpg'
+          ],
+          [
+            'idCar'=>4,
+            'srcPicturesCar'=>'Ferrari_599.jpg'
+          ],
+          [
+            'idCar'=>5,
+            'srcPicturesCar'=>'Fiat_multipla.jpg'
+          ],
+          [
+            'idCar'=>12,
+            'srcPicturesCar'=>'Fiat_ulysse.jpg'
+          ],
+          [
+            'idCar'=>7,
+            'srcPicturesCar'=>'Hummer_h3.jpg'
+          ],
+          [
+            'idCar'=>8,
+            'srcPicturesCar'=>'Kia_picanto.jpg'
+          ],
+          [
+            'idCar'=>13,
+            'srcPicturesCar'=>'Nissan_president.jpg'
+          ],
+          [
+            'idCar'=>19,
+            'srcPicturesCar'=>'Peugeot_306.jpeg'
+          ],
+          [
+            'idCar'=>14,
+            'srcPicturesCar'=>'Peugeot_3008.jpg'
+          ]
+          ,
+          [
+            'idCar'=>20,
+            'srcPicturesCar'=>'Porshe_cayenne.jpg'
+          ],
+          [
+            'idCar'=>15,
+            'srcPicturesCar'=>'Renault_zoe.jpeg'
+          ],
+          [
+            'idCar'=>22,
+            'srcPicturesCar'=>'SEAT_ibiza.jpg'
+          ],
+          [
+            'idCar'=>16,
+            'srcPicturesCar'=>'SEAT_leon.jpg'
+          ],
+          [
+            'idCar'=>17,
+            'srcPicturesCar'=>'Skoda_octavia.jpg'
+          ],
+          [
+            'idCar'=>25,
+            'srcPicturesCar'=>'Toyota_gt86.jpg'
+          ],
+          [
+            'idCar'=>26,
+            'srcPicturesCar'=>'Toyota_supra.jpg'
+          ]
+          ]);
+          DB::table("Car_Photos")->insert($dataPictures);
     }
 
     public function down()

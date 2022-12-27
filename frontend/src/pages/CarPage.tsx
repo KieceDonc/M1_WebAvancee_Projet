@@ -12,6 +12,8 @@ function CarPage() {
 
   let {id} = useParams()
   const data = useAppSelector((state) => state.cardata.cardata)
+  const pictures = useAppSelector((state)=>state.cardata.picturesdata)
+  
   let dataTab: Car[] = Object.values(data.dataCar)
   let car:Car = dataTab.filter((item) => item.id == ~~id)[0]
 
@@ -42,7 +44,7 @@ function CarPage() {
         <div className="CarCarousel">
           <img
             className="CarCarouselItem"
-            src="https://www.largus.fr/images/images/audi-a7-sportback-2-2018-04.jpg"
+            src={"/"+pictures[car.id].srcPicturesCar}
             alt="Audi A7 photo"
           />
         </div>

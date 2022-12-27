@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Car;
 use App\Models\Devis;
+use App\Models\Pictures;
 use App\Models\User;
 
 class ControllerData extends Controller
@@ -33,11 +34,21 @@ class ControllerData extends Controller
     {
         return response()->json(["Devis" => getAllDevis(), 'User' => getAllUser()]);
     }
+
+    public function allphotos()
+    {
+        return response()->json(getdatapictures());
+    }
 }
 
 function getdata()
 {
     return Car::all()->keyBy('id');
+}
+
+function getdatapictures()
+{
+    return Pictures::all()->keyBy("idCar");
 }
 
 function PostDevis(Request $request)

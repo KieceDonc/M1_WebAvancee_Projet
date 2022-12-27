@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 
 import './Cart.css'
-import { PostDevis } from '../helpers/helpers.js'
+import { PostDevis } from '../helpers/helpers'
 import { Car, Car_Photos } from '../models/interface'
+import { useAppSelector } from '../app/hooks'
 
 function Cart() {
   const [cars, setCars] = useState<Car[]>([])
   const defaultImgUrl =
     'https://images.caradisiac.com/logos-ref/modele/modele--mercedes-classe-c-5/S7-modele--mercedes-classe-c-5.jpg'
+  const pictures = useAppSelector((state)=>state.cardata.picturesdata)
 
   useEffect(() => {
     // Récupération des voitures enregistrées dans le localStorage au chargement du composant
@@ -51,8 +53,8 @@ function Cart() {
         if (car) {
           return (
             <div key={index} className="cart-item">
-              {car.image ? (
-                <img src={car.image} alt={car.name + ' ' + car.type} />
+              {pictures[car.id].srcPicturesCar ? (
+                <img src={"/"+pictures[car.id].srcPicturesCar} alt={car.name + ' ' + car.type} />
               ) : (
                 <img src={defaultImgUrl} alt={car.name + ' ' + car.type} />
               )}
