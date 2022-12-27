@@ -17,19 +17,20 @@ import {
 import { Link } from 'react-router-dom'
 import TriType from '../components/TriType'
 import TriPrix from '../components/TriPrix'
+import { Car } from '../models/interface'
 
 function Catalogue() {
   const data = useAppSelector((state) => state.cardata.cardata)
 
   // Etat des tries actifs
-  const [TrieAlpha, setTrieAlpha] = React.useState('1')
-  const [tabData, settabData] = React.useState([] as any[])
+  const [TrieAlpha, setTrieAlpha] = React.useState<string>('1')
+  const [tabData, settabData] = React.useState<Car[]>([])
 
 
-  let dataTab: any[] = Object.values(data.dataCar)
+  let dataTab: Car[] = Object.values(data.dataCar)
 
-  const [tabPrix ,settabPrix] = React.useState(dataTab)
-  const [tabType,settabType] = React.useState(dataTab)
+  const [tabPrix ,settabPrix] = React.useState<Car[]>(dataTab)
+  const [tabType,settabType] = React.useState<Car[]>(dataTab)
 
 
   // Simular as ComponentMount in VueJS
@@ -50,7 +51,7 @@ function Catalogue() {
   }, [tabPrix,tabType])
 
   // Retrieve Type of all car
-  const GetAllTypes = (tabData: any) => {
+  const GetAllTypes = (tabData: Car[]):string[] => {
     let uniqueValues: string[] = []
     tabData.forEach((obj: any) => {
       if (uniqueValues.indexOf(obj.type) === -1) {
@@ -63,9 +64,9 @@ function Catalogue() {
 
   // Fonction de tri
 
-  const TriAlphabetique = (enter: boolean,tab:any) => {
+  const TriAlphabetique = (enter: boolean,tab:Car[]):void => {
     settabData(
-      tab.sort(function (a:any, b:any) {
+      tab.sort(function (a:Car, b:Car) {
         let aname: string = a.name
         let bname: string = b.name
         return aname.localeCompare(bname)
@@ -76,14 +77,14 @@ function Catalogue() {
     }
   }
 
-  function Trieraveclestri() {
-    let i = tabPrix.filter(element => tabType.includes(element));
+  function Trieraveclestri():void {
+    let i : Car[]= tabPrix.filter(element => tabType.includes(element));
     TrieAlpha == '1' ? TriAlphabetique(true,i) : TriAlphabetique(false,i)
   }
 
   // Function for handle change on filter item
 
-  const handleChangeAlpha = (event: SelectChangeEvent) => {
+  const handleChangeAlpha = (event: SelectChangeEvent):void => {
     let targetValue: string = event.target.value
     setTrieAlpha(targetValue)
     targetValue == '1' ? TriAlphabetique(true,tabData) : TriAlphabetique(false,tabData)
@@ -111,8 +112,9 @@ function Catalogue() {
       <Typography variant="h5" textAlign="center" marginBottom={'20px'}>
         Liste des voitures
       </Typography>
-      {tabData.map((item: any) => (
+      {tabData.map((item: Car,index:number) => (
         <Card
+          key={index}
           sx={{
             display: 'flex',
             width: '65%',

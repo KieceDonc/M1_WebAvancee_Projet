@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Link, BrowserRouter as Router, Route, Routes, NavigateFunction } from 'react-router-dom'
 import { Button, createTheme } from '@mui/material'
 import './Header.css'
 
@@ -12,12 +12,12 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>):void => {
     setAnchorElNav(event.currentTarget)
   }
-  const [profile, setProfile] = useState('')
-  const [IsLog, setIsLogin] = useState(false)
-  const navigate = useNavigate()
+  const [profile, setProfile] = useState<string>('')
+  const [IsLog, setIsLogin] = useState<boolean>(false)
+  const navigate:NavigateFunction = useNavigate()
   useEffect(() => {
     let user = localStorage.getItem('user-info') || ''
     setProfile(user)
@@ -26,7 +26,7 @@ const Header = () => {
     }
   })
 
-  const Disconnect = () => {
+  const Disconnect = () :void => {
     localStorage.removeItem('user-info');
     setIsLogin(false);
     navigate("/")

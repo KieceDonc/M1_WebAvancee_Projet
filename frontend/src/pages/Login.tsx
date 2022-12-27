@@ -14,9 +14,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import './Login.css'
-import { useNavigate } from 'react-router-dom'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
 
-function Copyright(props: any) {
+function Copyright(props: any): JSX.Element {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -31,10 +31,10 @@ function Copyright(props: any) {
 
 const theme = createTheme()
 
-function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const navigate = useNavigate()
+function Login(): JSX.Element {
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const navigate:NavigateFunction = useNavigate()
 
   useEffect(() => {
     if (localStorage.getItem('user-info')) {
@@ -43,7 +43,7 @@ function Login() {
     }
   })
 
-  async function connexion() {
+  async function connexion(): Promise<void> {
     let user = { email, password }
     let result: any = await fetch('http://localhost:51001/api/login', {
       method: 'POST',
@@ -54,7 +54,6 @@ function Login() {
       },
     })
     result = await result.json()
-
     if (!result.error) {
       localStorage.setItem('user-info', JSON.stringify(result))
       navigate('/')

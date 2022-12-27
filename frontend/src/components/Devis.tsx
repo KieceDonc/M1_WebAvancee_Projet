@@ -12,11 +12,12 @@ import React, { useEffect, useState } from 'react'
 import './Devis.css'
 import { render } from 'react-dom'
 import * as html2pdf from 'html2pdf.js'
+import { Car, User } from '../models/interface'
 
-function Devis(props) {
-  const [user, setUser] = useState(props.user)
-  const [cars, setCars] = useState(props.car)
-  const [render, setRender] = useState(false)
+function Devis(props:any) {
+  const [user, setUser] = useState<any>(props.user)
+  const [cars, setCars] = useState<Car[]>(props.car)
+  const [render, setRender] = useState<boolean>(false)
 
   useEffect(() => {
     setUser(props.user)
@@ -25,7 +26,7 @@ function Devis(props) {
 
   useEffect(() => {
     if (cars != null) {
-      var element = document.getElementById('element-to-print')
+      var element:HTMLElement|null = document.getElementById('element-to-print')
       var opt = {
         margin: 0,
         filename: 'Devis.pdf',
@@ -36,27 +37,26 @@ function Devis(props) {
     }
   }, [cars])
 
-  const randomNumber = getRandomInt(1, 10000)
   const state = { date: new Date() }
 
 
-  function totalPriceHT(cars: any) {
+  function totalPriceHT(cars: Car[]) :number{
     let price = 0
-    cars.forEach((car: { price: number }) => {
+    cars.forEach((car:Car) => {
       price += car.price
     })
     return price
   }
 
-  function totalPriceTTC(cars: any) {
+  function totalPriceTTC(cars: Car[]) :number{
     let price = 0
-    cars.forEach((car: { price: number }) => {
+    cars.forEach((car:Car) => {
       price += car.price
     })
     return price * 1.2
   }
 
-  function getRandomInt(min: number, max: number) {
+  function getRandomInt(min: number, max: number):number {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -74,7 +74,7 @@ function Devis(props) {
 
             <div className="infos-societe">
               <p>Ville: Dijon</p>
-              <p>Référence: {randomNumber}</p>
+              <p>Référence: {props.id}</p>
               <p>Date: {state.date.toLocaleDateString()}</p>
             </div>
 
@@ -102,9 +102,9 @@ function Devis(props) {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {cars.map((car) => (
+                  {cars.map((car:Car,index:number) => (
                     <TableRow
-                      key={car.id}
+                      key={index}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                       <TableCell component="th" scope="row" sx={{ color: '#fff' }}>
                         {car.name}

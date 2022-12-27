@@ -1,12 +1,13 @@
 import { FormControl, Slider } from '@mui/material'
 import React,{useState} from 'react'
+import { Car } from '../models/interface'
 
-const TriPrix = (props) => {
-    const [tabData, settabData] = React.useState(props.tabdata)
+const TriPrix = (props:any) => {
+    const [tabData, settabData] = React.useState<Car[]>(props.tabdata)
     const [tabDataTrie, settabDatatrie] = React.useState()
     const [valueSlider, setvalueSlider] = React.useState<number[]>([0, 100000])
   
-    const handleChangeSlider = (event: Event, newValue: number | number[], activeThumb: number) => {
+    const handleChangeSlider = (event: Event, newValue: number | number[], activeThumb: number) : void=> {
         if (!Array.isArray(newValue)) {
           return
         }
@@ -17,16 +18,16 @@ const TriPrix = (props) => {
         }
         TriPerPrice(valueSlider[0], valueSlider[1])
       }
-      const TriPerPrice = (value1: number, value2: number) => {
-        let i = (tabData.filter((item) => item.price >= value1 * 1000 && item.price <= value2 * 1000))
+      const TriPerPrice = (value1: number, value2: number):void => {
+        let i = (tabData.filter((item:Car) => item.price >= value1 * 1000 && item.price <= value2 * 1000))
         props.onSort(i)
       }
 
-      function valuetext(value: number) {
+      function valuetext(value: number) :string{
         return `${value * 100}€`
       }
 
-      const minDistance = 0
+      const minDistance : number = 0
       const marks = [
         {
           value: 0,

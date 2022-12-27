@@ -9,7 +9,7 @@ import FacebookIcon from '@mui/icons-material/Facebook'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 
 const Footer = () => {
-  const [value, setValue] = React.useState(0)
+  const [value, setValue] = React.useState<number>(0)
   return (
     <Box
       sx={{

@@ -5,17 +5,18 @@ import { useParams } from 'react-router-dom'
 /* Importation css */
 import './CarPage.css'
 import { useAppSelector } from '../app/hooks'
+import { Car } from '../models/interface'
 
 function CarPage() {
 
 
-  let { id } = useParams()
+  let {id} = useParams()
   const data = useAppSelector((state) => state.cardata.cardata)
-  let dataTab: any[] = Object.values(data.dataCar)
-  let car = dataTab.filter((item) => item.id == id)[0]
+  let dataTab: Car[] = Object.values(data.dataCar)
+  let car:Car = dataTab.filter((item) => item.id == ~~id)[0]
 
-  function addCarToCart(){
-    let cars: object[] = [];
+  function addCarToCart():void{
+    let cars: Car[] = [];
     let json: string|null =  localStorage.getItem("cars");
 
     if(json != null){

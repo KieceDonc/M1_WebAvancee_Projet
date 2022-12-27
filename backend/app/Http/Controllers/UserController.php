@@ -17,8 +17,10 @@ class UserController extends Controller
         $user->last_name = $req->input("last_name");
         $user->email = $req->input("email");
         $requestVerify = DB::table("Users")->get()->where('email', $req->input("email"));
+        $id=Str::uuid();
+        $user->id=$id;
         if ($requestVerify->isEmpty() == 1) {
-            DB::table("Users")->insert(["id"=>Str::uuid(),
+            DB::table("Users")->insert(["id"=>$id,
                 "first_name" => $req->input("first_name"), "last_name" => $req->input("last_name"), "email" => $req->input("email"), "password" => Hash::make($req->input("password")), "isAdmin" => false
             ]);
             return $user;

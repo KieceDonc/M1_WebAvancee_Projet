@@ -7,13 +7,13 @@ import CloseIcon from '@mui/icons-material/Close';
 import './Contact.css'
 
 const Contact = () => {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState<boolean>(false)
 
-  const handleClickOpen = () => {
+  const handleClickOpen = ():void => {
     setOpen(true)
   }
 
-  const handleClose = () => {
+  const handleClose = ():void => {
     setOpen(false)
   }
 

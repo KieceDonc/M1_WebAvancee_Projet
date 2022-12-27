@@ -1,13 +1,14 @@
 import { Box, Chip, FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material'
 import React, { useState } from 'react'
+import { Car } from '../models/interface'
 
-const TriType = (props) => {
+const TriType = (props:any) => {
   const [tabDataType, settabDataType] = React.useState<string[]>([])
   const [tabData, settabData] = React.useState(props.tabdata)
   const [tabDataTrie, settabDatatrie] = React.useState()
   let type = props.type
 
-  const handleChangeType = (event: any) => {
+  const handleChangeType = (event: any):void => {
     const {
       target: { value },
     } = event
@@ -15,8 +16,8 @@ const TriType = (props) => {
     TriPerType(value)
   }
 
-  const TriPerType = (enter: any) => {
-    let i = tabData.filter((item) => (enter.indexOf(item.type) != -1 ? true : false))
+  const TriPerType = (enter: any):void => {
+    let i = tabData.filter((item:Car) => (enter.indexOf(item.type) != -1 ? true : false))
     if (i.length == 0) {
       props.onSort(tabData)
     } else {
@@ -39,8 +40,8 @@ const TriType = (props) => {
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
+              {selected.map((value:string,index:number) => (
+                <Chip key={index} label={value} />
               ))}
             </Box>
           )}>
