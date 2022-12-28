@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import './CarPage.css'
 import { useAppSelector } from '../app/hooks'
 import { Car } from '../models/interface'
+import { useState } from 'react'
+import Popup from '../components/PopUp'
 
 function CarPage() {
 
@@ -13,6 +15,8 @@ function CarPage() {
   let {id} = useParams()
   const data = useAppSelector((state) => state.cardata.cardata)
   const pictures = useAppSelector((state)=>state.cardata.picturesdata)
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [textPopup,setTextPopup]=useState<string>("");
   
   let dataTab: Car[] = Object.values(data.dataCar)
   let car:Car = dataTab.filter((item) => item.id == ~~id)[0]
@@ -30,12 +34,14 @@ function CarPage() {
     cars = [...cars, carClone]
 
     localStorage.setItem("cars",JSON.stringify(cars));
+    setTextPopup("Vous avez ajouter la voiture a votre panier")
+    setShowPopup(true)
   
   }
   
   return (
     <div>
-      <Header />
+      <Popup text={textPopup} show={showPopup} onSort={(i:boolean)=>setShowPopup(false)}/>
       <div className="CarContainer">
         <div className="CarHeader">
           <h1 className="CarTitle">{car.name}</h1>

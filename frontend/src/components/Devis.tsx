@@ -15,7 +15,7 @@ import * as html2pdf from 'html2pdf.js'
 import { Car, User } from '../models/interface'
 
 function Devis(props:any) {
-  const [user, setUser] = useState<any>(props.user)
+  const [user, setUser] = useState<User>(props.user)
   const [cars, setCars] = useState<Car[]>(props.car)
   const [render, setRender] = useState<boolean>(false)
 
@@ -43,7 +43,7 @@ function Devis(props:any) {
   function totalPriceHT(cars: Car[]) :number{
     let price = 0
     cars.forEach((car:Car) => {
-      price += car.price
+      price += ~~car.price
     })
     return price
   }
@@ -51,7 +51,7 @@ function Devis(props:any) {
   function totalPriceTTC(cars: Car[]) :number{
     let price = 0
     cars.forEach((car:Car) => {
-      price += car.price
+      price += ~~car.price
     })
     return price * 1.2
   }

@@ -54,7 +54,7 @@ function Catalogue() {
   // Retrieve Type of all car
   const GetAllTypes = (tabData: Car[]):string[] => {
     let uniqueValues: string[] = []
-    tabData.forEach((obj: any) => {
+    tabData.forEach((obj: Car) => {
       if (uniqueValues.indexOf(obj.type) === -1) {
         uniqueValues.push(obj.type)
       }
@@ -108,8 +108,8 @@ function Catalogue() {
           <MenuItem value={2}>Z-A</MenuItem>
         </Select>
       </FormControl>
-      <TriType type={type} tabdata={dataTab} onSort={(tabDataTrie:any) => settabType(tabDataTrie)} />
-      <TriPrix tabdata={dataTab} onSort={(tabDataTrie:any) => settabPrix(tabDataTrie)} />
+      <TriType type={type} tabdata={dataTab} onSort={(tabDataTrie:Car[]) => settabType(tabDataTrie)} />
+      <TriPrix tabdata={dataTab} onSort={(tabDataTrie:Car[]) => settabPrix(tabDataTrie)} />
       <Typography variant="h5" textAlign="center" marginBottom={'20px'}>
         Liste des voitures
       </Typography>

@@ -3,16 +3,18 @@ import React, { useState, useEffect } from 'react'
 import { getAllDevis } from '../helpers/helpers.js'
 import Devis from '../components/Devis'
 
+import * as type from '../models/interface'
+
 function Profile() {
   const [newpassword, setNewPassword] = useState<string>('')
   const [secondPassword, setVerifyPassword] = useState<string>('')
   const [IsAdminUser, setIsAdmin] = useState<boolean>(false)
-  const [OurDevis, setOurDevis] = useState<any>(null)
-  const [DevisAdminTab, setDevisAdmin] = useState<any>(null)
-  const [ActualUser, setActualUser] = useState<any>(null)
-  const [DevisSelect, setDevisSelect] = useState<any>(null)
-  const [AllUser, setAllUser] = useState<any>()
-  const [toPrint, setToPrint] = useState<any>(false)
+  const [OurDevis, setOurDevis] = useState<type.Devis>()
+  const [DevisAdminTab, setDevisAdmin] = useState<type.Devis[]>()
+  const [ActualUser, setActualUser] = useState<type.User>()
+  const [DevisSelect, setDevisSelect] = useState<type.Devis>()
+  const [AllUser, setAllUser] = useState<type.User[]>()
+  const [toPrint, setToPrint] = useState<boolean>(false)
   const [ActualDevisID, setDevisID] = useState<number>(0)
 
   useEffect(() => {

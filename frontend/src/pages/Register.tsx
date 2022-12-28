@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { useNavigate } from 'react-router-dom'
+import Popup from '../components/PopUp'
 
 function Copyright(props: any):JSX.Element {
   return (
@@ -36,6 +37,8 @@ function Register() {
   const [password, setPassWord] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const navigate: any = useNavigate()
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [textPopup,setTextPopup]=useState<string>("");
 
   async function signup(): Promise<void> {
     let user = { first_name, last_name, password, email }
@@ -50,15 +53,17 @@ function Register() {
     })
 
     result = await result.json()
-    if (!result.error) {
+    if (!result.error && !result.message) {
       localStorage.setItem('user-info', JSON.stringify(result))
       navigate('/')
     } else {
-      console.log(result.error)
+      setTextPopup("Erreur dans la création du compte")
+      setShowPopup(true)
     }
   }
   return (
     <ThemeProvider theme={theme}>
+      <Popup text={textPopup} show={showPopup} onSort={(i:boolean)=>setShowPopup(false)} />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

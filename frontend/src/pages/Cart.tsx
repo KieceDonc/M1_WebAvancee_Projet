@@ -4,9 +4,12 @@ import './Cart.css'
 import { PostDevis } from '../helpers/helpers'
 import { Car, Car_Photos } from '../models/interface'
 import { useAppSelector } from '../app/hooks'
+import Popup from '../components/PopUp'
 
 function Cart() {
   const [cars, setCars] = useState<Car[]>([])
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [textPopup,setTextPopup]=useState<string>("");
   const defaultImgUrl =
     'https://images.caradisiac.com/logos-ref/modele/modele--mercedes-classe-c-5/S7-modele--mercedes-classe-c-5.jpg'
   const pictures = useAppSelector((state)=>state.cardata.picturesdata)
@@ -39,15 +42,20 @@ function Cart() {
       localStorage.removeItem('cars')
       await PostDevis(user.id, cars, totalPrice(cars))
       setCars([])
+      setTextPopup("Vous avez confirmer votre panier ! Consultez votre devis sur votre profile")
+      setShowPopup(true)
     } else if (totalPrice(cars) == 0) {
-      alert('Votre panier est vide')
+      setTextPopup('Votre panier est vide')
+      setShowPopup(true)
     } else {
-      alert('Connectez-vous')
+      setTextPopup('Connectez-vous')
+      setShowPopup(true)
     }
   }
 
   return (
     <div className="cart">
+      <Popup text={textPopup} show={showPopup} onSort={(i:boolean)=>setShowPopup(false)}/>
       <h1 className="cart-title">Panier</h1>
       {cars.map((car: Car,index:number) => {
         if (car) {

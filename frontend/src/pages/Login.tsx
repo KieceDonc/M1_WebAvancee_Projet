@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import './Login.css'
 import { NavigateFunction, useNavigate } from 'react-router-dom'
+import Popup from '../components/PopUp'
 
 function Copyright(props: any): JSX.Element {
   return (
@@ -35,7 +36,9 @@ function Login(): JSX.Element {
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const navigate:NavigateFunction = useNavigate()
-
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [textPopup,setTextPopup]=useState<string>("");
+  
   useEffect(() => {
     if (localStorage.getItem('user-info')) {
       console.log('Already login')
@@ -54,15 +57,17 @@ function Login(): JSX.Element {
       },
     })
     result = await result.json()
-    if (!result.error) {
+    if (!result.error && !result.message) {
       localStorage.setItem('user-info', JSON.stringify(result))
       navigate('/')
     } else {
-      console.log('error mot de passe ou email incorrect')
+      setTextPopup("Erreur dans la connexion")
+      setShowPopup(true)
     }
   }
   return (
     <div>
+      <Popup text={textPopup} show={showPopup} onSort={(i:boolean)=>setShowPopup(false)} />
       <ThemeProvider theme={theme}>
         <Grid container component="main" sx={{ height: '100vh' }}>
           <CssBaseline />
