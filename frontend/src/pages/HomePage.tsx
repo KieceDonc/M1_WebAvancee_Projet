@@ -14,7 +14,7 @@ import { Car } from '../models/interface'
 
 function HomePage() {
   const data = useAppSelector((state) => state.cardata.cardata)
-  const pictures = useAppSelector((state)=>state.cardata.picturesdata)
+  const pictures = useAppSelector((state) => state.cardata.picturesdata)
   let dataTab: Car[] = Object.values(data.dataCar)
   const shuffled: Car[] = dataTab.sort(() => 0.5 - Math.random())
   let selected: Car[] = shuffled.slice(0, 3)
@@ -35,23 +35,21 @@ function HomePage() {
       <img src="./Otto_moto.png" />
       <label>Search</label>
       <input type="text" onChange={(e) => setSearch(e.target.value)} />
-      {filteredItems.map((item: Car,index:number) => (
+      {filteredItems.map((item: Car, index: number) => (
         <Card key={index} className="Card-HP" variant="outlined" sx={{ m: '20px', width: '100%' }}>
-          <Typography variant="h6" sx={{ textAlign: 'center', mb: 2 }}>
+          <Typography variant="h6" sx={{ mt: '10px', mb: '10px', ml: '20px' }}>
             {item.name}
           </Typography>
           <div className="div-cara">
-            <img
-              className="img-center"
-              src={"/"+pictures[item.id].srcPicturesCar}
-              alt="image"
-            />
-            <Typography className="typoright">{item.description}</Typography>
+            <img className="img-center" src={'/' + pictures[item.id].srcPicturesCar} alt="image" />
+            <Typography className="typoright" sx={{ mr: '20%', ml: '20px' }}>
+              {item.description}
+            </Typography>
           </div>
 
-          <Box sx={{ display: 'flex' }}>
+          <Box className="homepage-goto-container" sx={{ display: 'flex' }}>
             <Button
-              sx={{ ml: 'auto', fontWeight: 600 }}
+              sx={{ fontWeight: 600 }}
               component={Link}
               to={'/carPage/' + item.id}
               variant="contained">
