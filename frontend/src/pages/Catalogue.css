@@ -1,4 +1,17 @@
 .wrapper {
-    background-color: white;
-    color : black;
+  background-color: white;
+  color: black;
+}
+
+.catalogue-pricesort-container {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalgue-criterias-container {
+  display: flex;
+  justify-content: center;
 }
