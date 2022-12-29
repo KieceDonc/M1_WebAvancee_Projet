@@ -12,6 +12,7 @@ const Footer = () => {
   const [value, setValue] = React.useState<number>(0)
   return (
     <Box
+      className="footer-container"
       sx={{
         width: '100%',
         position: 'fixed',
@@ -25,7 +26,7 @@ const Footer = () => {
         onChange={(event, newValue) => {
           setValue(newValue)
         }}>
-        <img src="/Otto_moto.png" className="logo" />
+        <img src="/Otto_moto.png" />
         <BottomNavigationAction
           label="Adresses de contact"
           icon={<ContactMailIcon />}
