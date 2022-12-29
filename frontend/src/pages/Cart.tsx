@@ -54,39 +54,34 @@ function Cart() {
   }
 
   return (
-    <div className="cart-container">
-      <div className="cart">
-        <Popup text={textPopup} show={showPopup} onSort={(i: boolean) => setShowPopup(false)} />
-        <h1 className="cart-title">Panier</h1>
-        {cars.map((car: Car, index: number) => {
-          if (car) {
-            return (
-              <div key={index} className="cart-item">
-                {pictures[car.id].srcPicturesCar ? (
-                  <img
-                    src={'/' + pictures[car.id].srcPicturesCar}
-                    alt={car.name + ' ' + car.type}
-                  />
-                ) : (
-                  <img src={defaultImgUrl} alt={car.name + ' ' + car.type} />
-                )}
-                <div className="cart-item-text">
-                  <div>{car.name}</div>
-                  <div>{car.type}</div>
-                  <div>{car.price} €</div>
-                </div>
-                <button onClick={() => removeCar(car)} className="cart-item-button">
-                  Supprimer
-                </button>
+    <div className="cart">
+      <Popup text={textPopup} show={showPopup} onSort={(i: boolean) => setShowPopup(false)} />
+      <h1 className="cart-title">Panier</h1>
+      {cars.map((car: Car, index: number) => {
+        if (car) {
+          return (
+            <div key={index} className="cart-item">
+              {pictures[car.id].srcPicturesCar ? (
+                <img src={'/' + pictures[car.id].srcPicturesCar} alt={car.name + ' ' + car.type} />
+              ) : (
+                <img src={defaultImgUrl} alt={car.name + ' ' + car.type} />
+              )}
+              <div className="cart-item-text">
+                <div>{car.name}</div>
+                <div>{car.type}</div>
+                <div>{car.price} €</div>
               </div>
-            )
-          }
-        })}
-        <div className="cart-summary">Prix total : {'' + totalPrice(cars)} €</div>
-        <button onClick={CreateDevis} className="cart-continue">
-          Faire le devis
-        </button>
-      </div>
+              <button onClick={() => removeCar(car)} className="cart-item-button">
+                Supprimer
+              </button>
+            </div>
+          )
+        }
+      })}
+      <div className="cart-summary">Prix total : {'' + totalPrice(cars)} €</div>
+      <button onClick={CreateDevis} className="cart-continue">
+        Faire le devis
+      </button>
     </div>
   )
 }
