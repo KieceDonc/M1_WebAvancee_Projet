@@ -60,20 +60,20 @@ const Header = () => {
         <div className="header-button">
           {!IsLog ? (
             <Button component={Link} to="/Login" variant="contained">
-              Sign In
+              Se connecter
             </Button>
           ) : (
             <Button component={Link} onClick={Disconnect} to="/" variant="contained">
-              Log Out
+              Se déconnecter
             </Button>
           )}
           {!IsLog ? (
             <Button component={Link} to="/Register" variant="contained">
-              Register
+              S'enregistrer
             </Button>
           ) : (
             <Button component={Link} to="/profile" variant="contained">
-              Profile
+              Profil
             </Button>
           )}
           <Button component={Link} to="/Catalogue" variant="contained">
