@@ -7,17 +7,17 @@ import CharteUtilisation from './pages/CharteUtilisation'
 import Contact from './pages/Contact'
 import CarPage from './pages/CarPage'
 import Catalogue from './pages/Catalogue'
-import Cart from "./pages/Cart"
+import Cart from './pages/Cart'
 import Devis from './components/Devis'
 
-import Button from "@mui/material/Button";
-import { Link,BrowserRouter as Router,Route,Routes } from 'react-router-dom'
+import Button from '@mui/material/Button'
+import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import React from 'react';
+import React from 'react'
 
 /* Importation des composants */
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 function App() {
   return (

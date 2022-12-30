@@ -12,7 +12,6 @@ const Footer = () => {
   const [value, setValue] = React.useState<number>(0)
   return (
     <Box
-      className="footer-container"
       sx={{
         width: '100%',
         position: 'fixed',
