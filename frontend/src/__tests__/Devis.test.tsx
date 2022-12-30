@@ -12,7 +12,6 @@ import './index.css'
 import { Car, User } from '../models/interface';
 import * as html2pdf from 'html2pdf.js'
 
-import { shallow } from 'enzyme';
 
 test('Devis s\'affiche correctement', () => {
 
