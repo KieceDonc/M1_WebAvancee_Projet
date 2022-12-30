@@ -1,0 +1,22 @@
+.profile-container {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.profile-container h2 {
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.profile-category-container {
+  margin-bottom: 60px;
+}
+
+.profile-button {
+  background-color: #1565c0;
+  font-size: 14px;
+}
+
+.profile-newpassword {
+  margin-bottom: 8px;
+}
