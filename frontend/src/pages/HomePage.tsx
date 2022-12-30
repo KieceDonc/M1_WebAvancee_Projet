@@ -33,8 +33,12 @@ function HomePage() {
     <div className="homepage">
       <h1>Bienvenue chez Otto Moto</h1>
       <img src="./Otto_moto.png" />
-      <label>Search</label>
-      <input type="text" onChange={(e) => setSearch(e.target.value)} />
+      <label>Rechercher</label>
+      <input
+        type="text"
+        className="homepage-searchbar"
+        onChange={(e) => setSearch(e.target.value)}
+      />
       {filteredItems.map((item: Car, index: number) => (
         <Card key={index} className="Card-HP" variant="outlined" sx={{ m: '20px', width: '100%' }}>
           <Typography variant="h6" sx={{ mt: '10px', mb: '10px', ml: '20px' }}>

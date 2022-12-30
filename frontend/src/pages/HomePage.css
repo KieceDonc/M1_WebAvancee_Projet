@@ -5,7 +5,10 @@
   justify-content: center;
   background-color: white;
 }
-
+.homepage-searchbar {
+  width: 40vw;
+  height: 20px;
+}
 .homepage-goto-container {
   margin-left: 20px;
   margin-top: 10px;
