@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { api } from "../helpers/api.js";
+import { api } from "../helpers/api";
 
 type InitialState = {
     cardata:any;
@@ -7,9 +7,10 @@ type InitialState = {
 }
 
 const initialState:InitialState={
-    cardata:await api("http://localhost:51001/api/carModel"),
-    picturesdata:await api("http://localhost:51001/api/picturesCar")
+    cardata: async() => {await api("http://localhost:51001/api/carModel")},
+    picturesdata: async() => {await api("http://localhost:51001/api/picturesCar")}
 }
+
 
 const cardata = createSlice({
     name:'cardata',

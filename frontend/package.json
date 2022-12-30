@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

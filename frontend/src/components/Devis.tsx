@@ -12,7 +12,8 @@ import React, { useEffect, useState } from 'react'
 import './Devis.css'
 import { render } from 'react-dom'
 import * as html2pdf from 'html2pdf.js'
-import { Car, User } from '../models/interface'
+import { Car, User } from '../models/interface' 
+
 
 function Devis(props:any) {
   const [user, setUser] = useState<User>(props.user)
