@@ -7,8 +7,8 @@ type InitialState = {
 }
 
 const initialState:InitialState={
-    cardata: async() => {await api("http://localhost:51001/api/carModel")},
-    picturesdata: async() => {await api("http://localhost:51001/api/picturesCar")}
+    cardata: await api("http://localhost:51001/api/carModel"),
+    picturesdata:await  api("http://localhost:51001/api/picturesCar")
 }
 
 
