@@ -29,7 +29,7 @@ function Profile() {
   }, [IsAdminUser])
 
   async function isAdmin(): Promise<void> {
-    let toshow : any = JSON.parse(localStorage.getItem('user-info') || '')
+    let toshow: any = JSON.parse(localStorage.getItem('user-info') || '')
     let result: any = await fetch('http://localhost:51001/api/isAdmin?id=' + toshow.id, {
       method: 'GET',
       headers: {
@@ -44,7 +44,7 @@ function Profile() {
   }
 
   const getDevis = async (): Promise<any> => {
-    let toshow :any = JSON.parse(localStorage.getItem('user-info') || '')
+    let toshow: any = JSON.parse(localStorage.getItem('user-info') || '')
     let result: any = await fetch('http://localhost:51001/api/devis?id=' + toshow.id, {
       method: 'GET',
       headers: {
@@ -71,8 +71,8 @@ function Profile() {
 
   async function ChangePassword(): Promise<void> {
     if (newpassword === secondPassword) {
-      let password :string = newpassword
-      let profile:any = JSON.parse(localStorage.getItem('user-info') || '')
+      let password: string = newpassword
+      let profile: any = JSON.parse(localStorage.getItem('user-info') || '')
       let user = { profile, password }
       let result: any = await fetch('http://localhost:51001/api/profile', {
         method: 'POST',
@@ -113,14 +113,14 @@ function Profile() {
         <tbody>
           {OurDevis != null
             ? OurDevis.map((item: any, index: number) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>
-                    <button onClick={() => PrintMyPdf(item.id, false)}>Imprimer mon pdf</button>
-                  </td>
-                </tr>
-              ))
-            : <tr/>}
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>
+                  <button onClick={() => PrintMyPdf(item.id, false)}>Imprimer mon pdf</button>
+                </td>
+              </tr>
+            ))
+            : <tr />}
         </tbody>
       </table>
       {IsAdminUser ? (
@@ -130,14 +130,14 @@ function Profile() {
             <tbody>
               {DevisAdminTab != null
                 ? Object.values(DevisAdminTab).map((item: any, index: number) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>
-                        <button onClick={() => PrintMyPdf(item.id, true)}>Imprimer mon pdf</button>
-                      </td>
-                    </tr>
-                  ))
-                : <tr/>}
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <button onClick={() => PrintMyPdf(item.id, true)}>Imprimer mon pdf</button>
+                    </td>
+                  </tr>
+                ))
+                : <tr />}
             </tbody>
           </table>
         </div>

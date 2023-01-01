@@ -39,7 +39,7 @@ function Devis(props: any) {
       try {
         html2pdf().set(opt).from(element).save()
       } catch (e) {
-        console.log("An error occured with html2pdf")
+        // Jest ne trouve pas la fonction html2pdf
       }
     }
   }, [cars])
@@ -63,18 +63,13 @@ function Devis(props: any) {
     return price * 1.2
   }
 
-  function getRandomInt(min: number, max: number): number {
-    min = Math.ceil(min)
-    max = Math.floor(max)
-    return Math.floor(Math.random() * (max - min + 1)) + min
-  }
 
   return (
     // inspired by : https://www.kafeo.com/devis/modele-devis.htm
 
     <>
       {user != null && cars != null ? (
-        <div id="element-to-print">
+        <div id="element-to-print" data-testid="render">
           <div className="devis">
             <h1 className="devis-title-1">Otto Moto</h1>
             <h1 className="devis-title-2">DEVIS</h1>
@@ -128,12 +123,12 @@ function Devis(props: any) {
                 <TableRow>
                   <TableCell></TableCell>
                   <TableCell>Prix total HT</TableCell>
-                  <TableCell align="right">{totalPriceHT(cars)} €</TableCell>
+                  <TableCell align="right" data-testid="totalpriceHT">{totalPriceHT(cars)} €</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell></TableCell>
                   <TableCell>Prix total TTC</TableCell>
-                  <TableCell align="right">{totalPriceTTC(cars)} €</TableCell>
+                  <TableCell align="right" data-testid="prixTTC">{totalPriceTTC(cars)} €</TableCell>
                 </TableRow>
               </Table>
             </TableContainer>
