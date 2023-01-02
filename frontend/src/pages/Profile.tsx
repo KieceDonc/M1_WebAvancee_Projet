@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { getAllDevis } from '../helpers/helpers.js'
 import Devis from '../components/Devis'
@@ -115,7 +115,7 @@ function Profile() {
             {OurDevis != null ? (
               OurDevis.map((item: any, index: number) => (
                 <tr key={index}>
-                  <td>{index + 1}</td>
+                  <td>Devis n°{index + 1}</td>
                   <td>
                     <button className="profile-button" onClick={() => PrintMyPdf(item.id, false)}>
                       Imprimer mon pdf
@@ -155,18 +155,24 @@ function Profile() {
         ''
       )}
       <div className="profile-category-container">
-        <h2>Nouveau password</h2>
+        <h2>Nouveau mot de passe</h2>
         <div className="profile-newpassword">
-          <input
-            type="text"
+          <TextField
+            className="textField"
+            label="Nouveau mot de passe"
+            variant="outlined"
+            margin="dense"
+            type="password"
             onChange={(e) => setNewPassword(e.target.value)}
-            className="form-control"
-            placeholder="Nouveau mot de passe"></input>
-          <input
-            type="text"
-            onChange={(e) => setVerifyPassword(e.target.value)}
-            className="form-control"
-            placeholder="Reconfirmer le mot de passe"></input>
+          />
+          <TextField
+            className="textField"
+            label="Reconfirmer le mot de passe"
+            variant="outlined"
+            margin="dense"
+            type="password"
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
         </div>
         <button className="profile-button" onClick={ChangePassword}>
           Confirmer

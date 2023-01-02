@@ -1,15 +1,17 @@
 .profile-container {
-  padding-left: 20px;
-  padding-top: 20px;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .profile-container h2 {
   margin-top: 0;
-  margin-bottom: 6px;
+  margin-bottom: 18px;
 }
 
 .profile-category-container {
   margin-bottom: 60px;
+  text-align: center;
 }
 
 .profile-button {
@@ -18,5 +20,8 @@
 }
 
 .profile-newpassword {
-  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding-bottom: 15px;
 }
