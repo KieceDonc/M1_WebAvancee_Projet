@@ -79,7 +79,7 @@ function Cart() {
         }
       })}
       <div className="cart-summary">Prix total : {'' + totalPrice(cars)} €</div>
-      <button onClick={CreateDevis} className="cart-continue">
+      <button onClick={CreateDevis} className="cart-continue" data-testid="devis-button">
         Faire le devis
       </button>
     </div>

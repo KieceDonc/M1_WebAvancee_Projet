@@ -1,6 +1,7 @@
 /* Importation des composants */
 import Header from '../components/Header'
 import { useParams } from 'react-router-dom'
+import React from 'react';
 
 /* Importation css */
 import './CarPage.css'
@@ -10,38 +11,37 @@ import { useState } from 'react'
 import Popup from '../components/PopUp'
 
 function CarPage() {
-
-
-  let {id} = useParams()
+  // console log current url
+  let { id } = useParams()
   const data = useAppSelector((state) => state.cardata.cardata)
-  const pictures = useAppSelector((state)=>state.cardata.picturesdata)
+  const pictures = useAppSelector((state) => state.cardata.picturesdata)
   const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [textPopup,setTextPopup]=useState<string>("");
-  
+  const [textPopup, setTextPopup] = useState<string>("");
+
   let dataTab: Car[] = Object.values(data.dataCar)
-  let car:Car = dataTab.filter((item) => item.id == ~~id)[0]
+  let car: Car = dataTab.filter((item) => item.id == ~~id)[0]
 
-  function addCarToCart():void{
+  function addCarToCart(): void {
     let cars: Car[] = [];
-    let json: string|null =  localStorage.getItem("cars");
+    let json: string | null = localStorage.getItem("cars");
 
-    if(json != null){
+    if (json != null) {
       cars = JSON.parse(json);
     }
-    
+
     let carClone = JSON.parse(JSON.stringify(car));
     carClone.id = car.id;
     cars = [...cars, carClone]
 
-    localStorage.setItem("cars",JSON.stringify(cars));
+    localStorage.setItem("cars", JSON.stringify(cars));
     setTextPopup("Vous avez ajouter la voiture a votre panier")
     setShowPopup(true)
-  
+
   }
-  
+
   return (
     <div>
-      <Popup text={textPopup} show={showPopup} onSort={(i:boolean)=>setShowPopup(false)}/>
+      <Popup text={textPopup} show={showPopup} onSort={(i: boolean) => setShowPopup(false)} />
       <div className="CarContainer">
         <div className="CarHeader">
           <h1 className="CarTitle">{car.name}</h1>
@@ -50,11 +50,11 @@ function CarPage() {
         <div className="CarCarousel">
           <img
             className="CarCarouselItem"
-            src={"/"+pictures[car.id].srcPicturesCar}
+            src={"/" + pictures[car.id].srcPicturesCar}
             alt="Audi A7 photo"
           />
         </div>
-        <button className="CarButton" onClick={addCarToCart}>Ajouter au panier</button>
+        <button className="CarButton" onClick={addCarToCart} data-testid="addtocart-button">Ajouter au panier</button>
         <div className="CarDescription">
           <h2 className="CarDescriptionTitle">Description</h2>
           <p>{car.description}</p>

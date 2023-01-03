@@ -12,9 +12,9 @@ import { useNavigate } from 'react-router-dom'
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>): void => {
+  /* const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorElNav(event.currentTarget)
-  }
+  } */
   const [profile, setProfile] = useState<string>('')
   const [IsLog, setIsLogin] = useState<boolean>(false)
   const navigate: NavigateFunction = useNavigate()
@@ -59,27 +59,27 @@ const Header = () => {
 
         <div className="header-button">
           {!IsLog ? (
-            <Button component={Link} to="/Login" variant="contained">
+            <Button component={Link} to="/Login" variant="contained" data-testid="login-button">
               Se connecter
             </Button>
           ) : (
-            <Button component={Link} onClick={Disconnect} to="/" variant="contained">
+            <Button component={Link} onClick={Disconnect} to="/" variant="contained" data-testid="logout-button">
               Se déconnecter
             </Button>
           )}
           {!IsLog ? (
-            <Button component={Link} to="/Register" variant="contained">
+            <Button component={Link} to="/Register" variant="contained" data-testid="register-button">
               S'enregistrer
             </Button>
           ) : (
-            <Button component={Link} to="/profile" variant="contained">
+            <Button component={Link} to="/profile" variant="contained" data-testid="profil-button">
               Profil
             </Button>
           )}
-          <Button component={Link} to="/Catalogue" variant="contained">
+          <Button component={Link} to="/Catalogue" variant="contained" data-testid="catalogue-button">
             Catalogue
           </Button>
-          <Button component={Link} to="/cart" variant="contained">
+          <Button component={Link} to="/cart" variant="contained" data-testid="cart-button">
             Panier
           </Button>
         </div>

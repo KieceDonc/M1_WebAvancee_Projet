@@ -39,7 +39,7 @@ function Devis(props: any) {
       try {
         html2pdf().set(opt).from(element).save()
       } catch (e) {
-        // Jest ne trouve pas la fonction html2pdf
+        // Pour que jest ne plante pas car il ne trouve pas le document
       }
     }
   }, [cars])

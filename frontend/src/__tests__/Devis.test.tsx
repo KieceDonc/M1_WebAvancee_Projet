@@ -1,30 +1,27 @@
 import { getByTestId, render, act, fireEvent, screen, prettyDOM } from '@testing-library/react';
 import React from 'react';
+import '@testing-library/jest-dom';
+
 import Devis from '../components/Devis'
-import './index.css'
-import { Car } from '../models/interface';
 import { car1, car2, user1 } from '../__mocks__/objectsMock'
 
-afterEach(() => {
-  jest.restoreAllMocks();
-});
 
-let cars: Car[] = [car1, car2];
+let cars = [car1, car2];
 
 describe('Devis : Integration', () => {
-  it('renders correctly when passed a car array and user', () => {
+  it('affiche correctement dans le DOM quand on lui passe un tableau de voitures et un utilisateur', () => {
     const { getByTestId } = render(<Devis user={user1} car={cars} />);
     getByTestId('render');
   });
 });
 
 describe('Devis : Mocking', () => {
-  it('should mock cars with correct price', () => {
+  it('mock une voiture avec les prix attendus', () => {
     expect(car1.price).toBe(20000);
     expect(car2.price).toBe(25000);
   });
 
-  it('should mock cars with correct name', () => {
+  it('mock une voiture avec les noms attendus', () => {
     expect(car1.name).toBe("Audi A3");
     expect(car2.name).toBe("Audi A4");
   });
@@ -32,27 +29,27 @@ describe('Devis : Mocking', () => {
 
 describe('Devis : Unit', () => {
 
-  it('should get the correct HT price', () => {
+  it('calcule correctement le prix HT dans le devis', () => {
     const el = render(<Devis user={user1} car={cars} />);
     let prixHT = el.getByTestId('totalpriceHT').innerHTML;
     expect(prixHT).toBe("45000 €");
   });
 
-  it('should get the correct TTC price', () => {
+  it('calcule correctement le prix TTC dans le devis', () => {
     const el = render(<Devis user={user1} car={cars} />);
     let prixTTC = el.getByTestId('prixTTC').innerHTML;
     expect(prixTTC).toBe("54000 €");
   });
 
-  it('should contain all the cars indicated', () => {
-    const el = render(<Devis user={user1} car={cars} />);
-    expect(el.getByTestId('car-0')).toBeDefined();
-    expect(el.getByTestId('car-1')).toBeDefined();
+  it('contient les voitures attendues', () => {
+    const wrapper = render(<Devis user={user1} car={cars} />);
+    expect(wrapper.queryByTestId('car-0')).toBeInTheDocument();
+    expect(wrapper.queryByTestId('car-1')).toBeInTheDocument();
   });
 
-  it('should not have an incorrect amount of rows', () => {
-    const el = render(<Devis user={user1} car={cars} />);
-    expect(el.container.innerHTML).toContain('car-0')
-    expect(el.container.innerHTML).not.toContain('car-2')
+  it('n\'affiche pas d\'autres voitures que celles indiquées', () => {
+    const wrapper = render(<Devis user={user1} car={cars} />);
+    expect(wrapper.queryByTestId('car-2')).not.toBeInTheDocument();
+    expect(wrapper.queryByTestId('car-3')).not.toBeInTheDocument();
   });
 });
