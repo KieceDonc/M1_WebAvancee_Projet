@@ -19,7 +19,7 @@ const renderComponent = () => {
 
 describe('HomePage : Integration', () => {
     it('should render homepage ', () => {
-        const container = renderComponent();
+        const wrapper = renderComponent();
     })
 
     it('should display welcome message to user', () => {
@@ -27,8 +27,5 @@ describe('HomePage : Integration', () => {
         const element = getByText('Bienvenue chez Otto Moto');
         expect(element.textContent).toBe('Bienvenue chez Otto Moto');
     })
-
-
-
 });
 
