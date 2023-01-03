@@ -10,7 +10,9 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 
 const Footer = () => {
   const [value, setValue] = React.useState<number>(0)
+  
   return (
+    <div>
     <Box
       sx={{
         width: '100%',
@@ -45,6 +47,7 @@ const Footer = () => {
         />
       </BottomNavigation>
     </Box>
+    </div>
   )
 }
 

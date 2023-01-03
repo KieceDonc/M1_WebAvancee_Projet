@@ -45,7 +45,7 @@ class UserController extends Controller
 
     function changePassword(Request $req)
     {
-        DB::table("Users")->where('id', $req->id)->update(['password' => Hash::make($req->input("password"))], ["account_modified" => date("d/m/Y H:i:s")]);
+        $isSucess=DB::table("Users")->where('id', $req->id)->update(['password' => Hash::make($req->password)]);
         return ["Success" => "Password changed"];
     }
 

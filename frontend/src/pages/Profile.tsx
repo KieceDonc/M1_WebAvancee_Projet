@@ -10,7 +10,7 @@ function Profile() {
   const [secondPassword, setVerifyPassword] = useState<string>('')
   const [IsAdminUser, setIsAdmin] = useState<boolean>(false)
   const [OurDevis, setOurDevis] = useState<type.Devis>()
-  const [DevisAdminTab, setDevisAdmin] = useState<type.Devis[]>()
+  const [DevisAdminTab, setDevisAdmin] = useState<type.Devis[]>([])
   const [ActualUser, setActualUser] = useState<type.User>()
   const [DevisSelect, setDevisSelect] = useState<type.Devis>()
   const [AllUser, setAllUser] = useState<type.User[]>()
@@ -19,7 +19,7 @@ function Profile() {
 
   useEffect(() => {
     isAdmin()
-    getDevis()
+    getDevis()  
   }, [])
 
   useEffect(() => {
@@ -37,10 +37,11 @@ function Profile() {
         Accept: 'application/json',
       },
     })
-
+    if(result!=null){
     result = await result.json()
     setIsAdmin(result.isAdmin)
     setActualUser(toshow)
+    }
   }
 
   const getDevis = async (): Promise<any> => {
@@ -70,10 +71,11 @@ function Profile() {
   }
 
   async function ChangePassword(): Promise<void> {
-    if (newpassword === secondPassword) {
+    if (newpassword == secondPassword) {
       let password: string = newpassword
       let profile: any = JSON.parse(localStorage.getItem('user-info') || '')
-      let user = { profile, password }
+      let id = profile.id;
+      let user = { id, password }
       let result: any = await fetch('http://localhost:51001/api/profile', {
         method: 'POST',
         body: JSON.stringify(user),
@@ -94,9 +96,10 @@ function Profile() {
       setDevisID(id)
     } else {
       let i: any = Object.values(DevisAdminTab).filter((item: any) => item.id == id)
-      let j: any = Object.values(AllUser).filter((item: any) => item.id == id)
+      let j: any = Object.values(AllUser).filter((item: any) => item.id == i[0].idUtilisateur)
       setActualUser(j[0])
       setDevisSelect(JSON.parse(i[0].data).CarsList)
+      setDevisID(id)
     }
     setToPrint(true)
   }
@@ -171,10 +174,10 @@ function Profile() {
             variant="outlined"
             margin="dense"
             type="password"
-            onChange={(e) => setNewPassword(e.target.value)}
+            onChange={(e) => setVerifyPassword(e.target.value)}
           />
         </div>
-        <button className="profile-button" onClick={ChangePassword}>
+        <button className="profile-button" onClick={()=>ChangePassword()}>
           Confirmer
         </button>
       </div>
