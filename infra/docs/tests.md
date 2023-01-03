@@ -28,8 +28,8 @@ npm run <script> <nom_sequence>  # Fonctionne aussi avec npm test <nom_sequence>
 ```
 
 Et il possible de lancer une
-- Séquence de test sur un composant, par exemple avec Devis : `npm test "Devis"
-- Séquence de test sur un type de test, par exemple Unit : `npm test "Unit"
+- Séquence de test sur un composant, par exemple avec Devis : `npm test "Devis"`
+- Séquence de test sur un type de test, par exemple Unit : `npm test "Unit"`
 
 
 
