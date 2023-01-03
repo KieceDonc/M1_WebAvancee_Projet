@@ -1,16 +1,24 @@
-.header-photo{
-    max-width: 66px;
-    padding: 0 40px;
+.header-container {
+  height: 80px;
 }
 
-.header-button{
-    display: inline-flex;
-    justify-content: space-between;
-    width: 700px;
-    padding-left: 10%;
+.header-href {
+  width: 100%;
+  cursor: pointer;
 }
 
-.header-button a{
-    margin: 15px;
-    background-color: #1976d2;
+.header-photo {
+  height: 80px;
+  padding: 0 40px;
+}
+
+.header-button {
+  display: inline-flex;
+  justify-content: end;
+  width: 100%;
+}
+
+.header-button a {
+  margin-right: 60px;
+  background-color: #1976d2;
 }
