@@ -11,7 +11,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest --silent --verbose -t",
+    "test-coverage": "jest --verbose --collect-coverage --silent -t",
+    "test-console": "jest --verbose -t",
+    "test-silent": "jest --verbose -t",
+    "jest": "jest"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
