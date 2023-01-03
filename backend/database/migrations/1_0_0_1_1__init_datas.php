@@ -52,7 +52,7 @@ return new class extends Migration {
         [
             "id"=>28,
             "name"=>"Renault KWID RXT",
-            "price"=>315000,
+            "price"=>95000,
             "type"=>"SUV",
             "nb_doors"=>5,
             "year"=>2017,
@@ -61,7 +61,7 @@ return new class extends Migration {
         [
             "id"=>29,
             "name"=>"Ford Figo Diesel Titanium",
-            "price"=>170000,
+            "price"=>70000,
             "type"=>"Familiale",
             "nb_doors"=>5,
             "year"=>2010,

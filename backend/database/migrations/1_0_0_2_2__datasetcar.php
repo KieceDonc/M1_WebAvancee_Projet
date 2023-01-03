@@ -51,7 +51,7 @@ return new class extends Migration {
             [
               "id"=>4,
               "year"=> 2017,
-              "price"=> 106750,
+              "price"=> 96750,
               "nb_doors"=> 2,
               "name"=> "Ferrari 599",
               "type"=>"Sportive",
@@ -123,7 +123,7 @@ return new class extends Migration {
             [
               "id"=>10,
               "year"=> 2017,
-              "price"=> 157786,
+              "price"=> 99786,
               "nb_doors"=> 2,
               "name"=> "Mercedes-Benz Amg Gt",
               "type"=>"Sportive",

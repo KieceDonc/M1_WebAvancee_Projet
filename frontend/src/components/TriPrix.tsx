@@ -24,7 +24,7 @@ const TriPrix = (props: any) => {
   }
   const TriPerPrice = (value1: number, value2: number): void => {
     let i = tabData.filter(
-      (item: Car) => item.price >= value1 * 1000 && item.price <= value2 * 1000,
+      (item: Car) => item.price >= value1  && item.price <= value2 ,
     )
     props.onSort(i)
   }
@@ -53,7 +53,8 @@ const TriPrix = (props: any) => {
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
         disableSwap
-        marks={marks}
+        min={0}
+        max={100000}
       />
     </FormControl>
   )
