@@ -1,15 +1,8 @@
-
-import { Provider } from 'react-redux';
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { getByTestId, render, act, fireEvent, screen, prettyDOM } from '@testing-library/react';
-import Catalogue from '../pages/Catalogue';
-
-import ReactDOM from 'react-dom/client'
 import React from 'react';
 import Devis from '../components/Devis'
-import { store } from '../app/store'
 import './index.css'
-import { Car, User } from '../models/interface';
+import { Car } from '../models/interface';
 import { car1, car2, user1 } from '../__mocks__/objectsMock'
 
 afterEach(() => {
@@ -25,8 +18,7 @@ describe('Devis : Integration', () => {
   });
 });
 
-describe('Devis : Unit & Mocking', () => {
-
+describe('Devis : Mocking', () => {
   it('should mock cars with correct price', () => {
     expect(car1.price).toBe(20000);
     expect(car2.price).toBe(25000);
@@ -36,6 +28,9 @@ describe('Devis : Unit & Mocking', () => {
     expect(car1.name).toBe("Audi A3");
     expect(car2.name).toBe("Audi A4");
   });
+});
+
+describe('Devis : Unit', () => {
 
   it('should get the correct HT price', () => {
     const el = render(<Devis user={user1} car={cars} />);
@@ -49,7 +44,7 @@ describe('Devis : Unit & Mocking', () => {
     expect(prixTTC).toBe("54000 €");
   });
 
-  it('should have two cars', () => {
+  it('should contain all the cars indicated', () => {
     const el = render(<Devis user={user1} car={cars} />);
     expect(el.getByTestId('car-0')).toBeDefined();
     expect(el.getByTestId('car-1')).toBeDefined();
