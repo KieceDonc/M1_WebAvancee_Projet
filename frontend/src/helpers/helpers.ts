@@ -1,6 +1,6 @@
-import { api } from "../helpers/api.js";
+import { api } from "../helpers/api";
 import type { JsonDevis } from '../models/interface'
-import { useAppSelector } from '../app/hooks.js'
+import { useAppSelector } from '../app/hooks'
 
 
 async function PostDevis(id: string, CarsList: any,totalprice : Number) {

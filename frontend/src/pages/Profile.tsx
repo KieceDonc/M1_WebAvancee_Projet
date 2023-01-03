@@ -137,6 +137,7 @@ function Profile() {
           <h2>Tous les devis</h2>
           <table>
             <tbody>
+
               {DevisAdminTab != null ? (
                 Object.values(DevisAdminTab).map((item: any, index: number) => (
                   <tr key={index}>
