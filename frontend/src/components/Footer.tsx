@@ -10,7 +10,9 @@ import ContactMailIcon from '@mui/icons-material/ContactMail'
 
 const Footer = () => {
   const [value, setValue] = React.useState<number>(0)
+  
   return (
+    <div>
     <Box
       sx={{
         width: '100%',
@@ -25,7 +27,7 @@ const Footer = () => {
         onChange={(event, newValue) => {
           setValue(newValue)
         }}>
-        <img src="/Otto_moto.png" className="logo" />
+        <img src="/Otto_moto.png" />
         <BottomNavigationAction
           label="Adresses de contact"
           icon={<ContactMailIcon />}
@@ -45,6 +47,7 @@ const Footer = () => {
         />
       </BottomNavigation>
     </Box>
+    </div>
   )
 }
 

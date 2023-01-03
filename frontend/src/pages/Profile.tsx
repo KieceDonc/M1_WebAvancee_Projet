@@ -1,8 +1,8 @@
-import { Button } from '@mui/material'
+import { Button, TextField } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { getAllDevis } from '../helpers/helpers.js'
 import Devis from '../components/Devis'
-
+import './Profile.css'
 import * as type from '../models/interface'
 
 function Profile() {
@@ -10,7 +10,7 @@ function Profile() {
   const [secondPassword, setVerifyPassword] = useState<string>('')
   const [IsAdminUser, setIsAdmin] = useState<boolean>(false)
   const [OurDevis, setOurDevis] = useState<type.Devis>()
-  const [DevisAdminTab, setDevisAdmin] = useState<type.Devis[]>()
+  const [DevisAdminTab, setDevisAdmin] = useState<type.Devis[]>([])
   const [ActualUser, setActualUser] = useState<type.User>()
   const [DevisSelect, setDevisSelect] = useState<type.Devis>()
   const [AllUser, setAllUser] = useState<type.User[]>()
@@ -19,7 +19,7 @@ function Profile() {
 
   useEffect(() => {
     isAdmin()
-    getDevis()
+    getDevis()  
   }, [])
 
   useEffect(() => {
@@ -37,10 +37,11 @@ function Profile() {
         Accept: 'application/json',
       },
     })
-
+    if(result!=null){
     result = await result.json()
     setIsAdmin(result.isAdmin)
     setActualUser(toshow)
+    }
   }
 
   const getDevis = async (): Promise<any> => {
@@ -70,10 +71,11 @@ function Profile() {
   }
 
   async function ChangePassword(): Promise<void> {
-    if (newpassword === secondPassword) {
+    if (newpassword == secondPassword) {
       let password: string = newpassword
       let profile: any = JSON.parse(localStorage.getItem('user-info') || '')
-      let user = { profile, password }
+      let id = profile.id;
+      let user = { id, password }
       let result: any = await fetch('http://localhost:51001/api/profile', {
         method: 'POST',
         body: JSON.stringify(user),
@@ -94,69 +96,89 @@ function Profile() {
       setDevisID(id)
     } else {
       let i: any = Object.values(DevisAdminTab).filter((item: any) => item.id == id)
-      let j: any = Object.values(AllUser).filter((item: any) => item.id == id)
+      let j: any = Object.values(AllUser).filter((item: any) => item.id == i[0].idUtilisateur)
       setActualUser(j[0])
       setDevisSelect(JSON.parse(i[0].data).CarsList)
+      setDevisID(id)
     }
     setToPrint(true)
   }
 
   return (
-    <div>
+    <div className="profile-container">
       <div style={{ display: 'none' }}>
         <div id="element-to-print">
           <Devis car={DevisSelect} user={ActualUser} id={ActualDevisID} />
         </div>
       </div>
-      <div>Mes Devis</div>
-      <table>
-        <tbody>
-          {OurDevis != null
-            ? OurDevis.map((item: any, index: number) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>
-                  <button onClick={() => PrintMyPdf(item.id, false)}>Imprimer mon pdf</button>
-                </td>
-              </tr>
-            ))
-            : <tr />}
-        </tbody>
-      </table>
+      <div className="profile-category-container">
+        <h2>Mes Devis</h2>
+        <table>
+          <tbody>
+            {OurDevis != null ? (
+              OurDevis.map((item: any, index: number) => (
+                <tr key={index}>
+                  <td>Devis n°{index + 1}</td>
+                  <td>
+                    <button className="profile-button" onClick={() => PrintMyPdf(item.id, false)}>
+                      Imprimer mon pdf
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr />
+            )}
+          </tbody>
+        </table>
+      </div>
       {IsAdminUser ? (
-        <div>
-          <div>Tous les devis</div>
+        <div className="profile-category-container">
+          <h2>Tous les devis</h2>
           <table>
             <tbody>
-              {DevisAdminTab != null
-                ? Object.values(DevisAdminTab).map((item: any, index: number) => (
+
+              {DevisAdminTab != null ? (
+                Object.values(DevisAdminTab).map((item: any, index: number) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
                     <td>
-                      <button onClick={() => PrintMyPdf(item.id, true)}>Imprimer mon pdf</button>
+                      <button className="profile-button" onClick={() => PrintMyPdf(item.id, true)}>
+                        Imprimer mon pdf
+                      </button>
                     </td>
                   </tr>
                 ))
-                : <tr />}
+              ) : (
+                <tr />
+              )}
             </tbody>
           </table>
         </div>
       ) : (
         ''
       )}
-      <div>
-        <h1>Nouveau password</h1>
-        <input
-          type="text"
-          onChange={(e) => setNewPassword(e.target.value)}
-          className="form-control"
-          placeholder="Nouveau mot de passe"></input>
-        <input
-          type="text"
-          onChange={(e) => setVerifyPassword(e.target.value)}
-          className="form-control"
-          placeholder="Reconfirmer le mot de passe"></input>
-        <button onClick={ChangePassword} className="btn btn-primary">
+      <div className="profile-category-container">
+        <h2>Nouveau mot de passe</h2>
+        <div className="profile-newpassword">
+          <TextField
+            className="textField"
+            label="Nouveau mot de passe"
+            variant="outlined"
+            margin="dense"
+            type="password"
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          <TextField
+            className="textField"
+            label="Reconfirmer le mot de passe"
+            variant="outlined"
+            margin="dense"
+            type="password"
+            onChange={(e) => setVerifyPassword(e.target.value)}
+          />
+        </div>
+        <button className="profile-button" onClick={()=>ChangePassword()}>
           Confirmer
         </button>
       </div>
