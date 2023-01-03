@@ -106,6 +106,7 @@ function Devis(props: any) {
                 <TableBody>
                   {cars.map((car: Car, index: number) => (
                     <TableRow
+                      data-testid={`car-${index}`}
                       key={index}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                       <TableCell component="th" scope="row" sx={{ color: '#fff' }}>
@@ -141,7 +142,8 @@ function Devis(props: any) {
         </div>
       ) : (
         <></>
-      )}
+      )
+      }
     </>
   )
 }
