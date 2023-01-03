@@ -28,7 +28,7 @@ const TriType = (props: any) => {
 
   return (
     <div>
-      <FormControl sx={{ width: '45%', m: '10px' }}>
+      <FormControl sx={{ width: '20vw', m: '10px' }}>
         <InputLabel id="demo-multiple-chip-label">Trier par type</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"

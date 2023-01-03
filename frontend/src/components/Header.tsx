@@ -7,17 +7,17 @@ import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>):void => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorElNav(event.currentTarget)
   }
   const [profile, setProfile] = useState<string>('')
   const [IsLog, setIsLogin] = useState<boolean>(false)
-  const navigate:NavigateFunction = useNavigate()
+  const navigate: NavigateFunction = useNavigate()
   useEffect(() => {
     let user = localStorage.getItem('user-info') || ''
     setProfile(user)
@@ -26,16 +26,21 @@ const Header = () => {
     }
   })
 
-  const Disconnect = () :void => {
-    localStorage.removeItem('user-info');
-    setIsLogin(false);
-    navigate("/")
+  const Disconnect = (): void => {
+    localStorage.removeItem('user-info')
+    setIsLogin(false)
+    navigate('/')
   }
   return (
-    <AppBar position="fixed" style={{ background: '#42a5f5' }} sx={{ width: '100%' }}>
+    <AppBar
+      position="fixed"
+      className="header-container"
+      style={{ background: '#42a5f5' }}
+      sx={{ width: '100%' }}>
       <Toolbar disableGutters>
         <img src="/Otto_moto.png" className="header-photo" />
         <Typography
+          className="header-href"
           variant="h6"
           noWrap
           component="a"
@@ -55,20 +60,20 @@ const Header = () => {
         <div className="header-button">
           {!IsLog ? (
             <Button component={Link} to="/Login" variant="contained">
-              Sign In
+              Se connecter
             </Button>
           ) : (
             <Button component={Link} onClick={Disconnect} to="/" variant="contained">
-              Log Out
+              Se déconnecter
             </Button>
           )}
           {!IsLog ? (
             <Button component={Link} to="/Register" variant="contained">
-              Register
+              S'enregistrer
             </Button>
           ) : (
             <Button component={Link} to="/profile" variant="contained">
-              Profile
+              Profil
             </Button>
           )}
           <Button component={Link} to="/Catalogue" variant="contained">

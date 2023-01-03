@@ -1,0 +1,27 @@
+.profile-container {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.profile-container h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.profile-category-container {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.profile-button {
+  background-color: #1565c0;
+  font-size: 14px;
+}
+
+.profile-newpassword {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding-bottom: 15px;
+}
