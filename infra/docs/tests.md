@@ -11,19 +11,37 @@ Pour lancer la séquence de tests complète il faut utiliser la commande
 npm test
 ```
 
-Mais il est aussi possible de passer des arguments à Jest
+# Scripts de test
+
+Plusieurs scripts de tests ont étés configurés dans le package.json, qui sont lançables avec `npm run <script>`
+
+- Séquence de test normale, avec verbosité : `npm run test` dont l'alias est `npm test`
+- Séquence de test sans verbosité : `npm run test-silent`
+- Séquence de test avec couverture du code : `npm run test-coverage`
+- Séquence de test avec sortie de la console : `npm run test-console`
+
+Pour chacune de ces séquences, il est possible de passer une chaine de caractère après le script testant soit un type de tests, soit les tests d'un composant en particulier.
+La commande est :
+
 ```shell
-npm test -- (arguments)
+npm run <script> <nom_sequence>  # Fonctionne aussi avec npm test <nom_sequence>
 ```
 
-Ainsi on peut
+Et il possible de lancer une
+- Séquence de test sur un composant, par exemple avec Devis : `npm test "Devis"
+- Séquence de test sur un type de test, par exemple Unit : `npm test "Unit"
 
-1) Lancer uniquement un test en particulier. Si on veut lancer uniquement les tests qui contiennent app dans leur nom :
+
+
+# Syntaxe des arguments
+
+Il est possible de passer des arguments à Jest avec cette syntaxe :
 ```shell
-npm test -- -t 'App'
+npm run jest -- <arguments>
 ```
 
-2) Observer la couverture du code :
+Les différents drapeaux sont trouvables dans la doc de Jest https://jestjs.io/docs/cli
+Par exemple :
 ```shell
-npm test -- --collect-coverage
+npm run jest -- --showconfig
 ```
