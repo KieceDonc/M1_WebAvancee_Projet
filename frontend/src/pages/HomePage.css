@@ -5,10 +5,24 @@
   justify-content: center;
   background-color: white;
 }
+
 .homepage-searchbar {
-  width: 40vw;
   height: 20px;
+  width: 400px;
+  background-color: #bbdefb;
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
 }
+
+.homepage-searchbar:focus {
+  width: 600px;
+}
+
+.homepage-searchbar:active {
+  width: 600px;
+}
+
 .homepage-goto-container {
   margin-left: 20px;
   margin-top: 10px;

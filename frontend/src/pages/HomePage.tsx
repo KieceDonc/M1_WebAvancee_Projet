@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import React, { useState } from 'react'
 import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { Box, Button, Card, IconButton, Typography } from '@mui/material'
+import { Box, Button, Card, Typography } from '@mui/material'
 
 import { useAppSelector, useAppDispatch } from '../app/hooks'
 
@@ -33,8 +33,8 @@ function HomePage() {
     <div className="homepage">
       <h1>Bienvenue chez Otto Moto</h1>
       <img src="./Otto_moto.png" />
-      <label>Rechercher</label>
       <input
+        placeholder="Recherche rapide de voiture"
         type="text"
         className="homepage-searchbar"
         onChange={(e) => setSearch(e.target.value)}
