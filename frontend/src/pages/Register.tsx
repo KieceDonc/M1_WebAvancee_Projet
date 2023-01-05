@@ -29,6 +29,14 @@ function Copyright(props: any):JSX.Element {
   )
 }
 
+const validateEmail = (email:string) => {
+  return email
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
 const theme = createTheme()
 
 function Register() {
@@ -41,6 +49,8 @@ function Register() {
   const [textPopup,setTextPopup]=useState<string>("");
 
   async function signup(): Promise<void> {
+
+    if(validateEmail(email)){
     let user = { first_name, last_name, password, email }
 
     let result: any = await fetch('http://localhost:51001/api/register', {
@@ -60,6 +70,11 @@ function Register() {
       setTextPopup("Erreur dans la création du compte")
       setShowPopup(true)
     }
+  }
+  else {
+    setTextPopup("Erreur dans l'adresse mail'")
+    setShowPopup(true)
+  }
   }
   return (
     <ThemeProvider theme={theme}>
