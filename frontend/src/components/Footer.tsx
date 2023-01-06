@@ -27,7 +27,6 @@ const Footer = () => {
         onChange={(event, newValue) => {
           setValue(newValue)
         }}>
-        <img src="/Otto_moto.png" />
         <BottomNavigationAction
           label="Adresses de contact"
           icon={<ContactMailIcon />}
