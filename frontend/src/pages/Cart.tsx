@@ -22,9 +22,12 @@ function Cart() {
     }
   }, [])
 
+  useEffect(()=>{
+    localStorage.setItem('cars', JSON.stringify(cars))
+  },[cars])
+
   function removeCar(car: Car): void {
     setCars(cars.filter((c) => c !== car))
-    localStorage.setItem('cars', JSON.stringify(cars))
   }
 
   function totalPrice(cars: Car[]): Number {
