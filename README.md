@@ -15,3 +15,7 @@ Dans un autre terminal :
 Allez dans le dossier frontend :  
 
 Puis lancer : ```npm run dev```
+
+# Lancement des tests
+
+Voir la doc de test dans infra/docs
